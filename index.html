@@ -1,6 +1,11 @@
 <html>
   <head>
-    <link rel="stylesheet" href="style.css">
+    <div id="nav-placeholder"></div>
+    <script>
+      $(function(){
+        $("#nav-placeholder").load("top_bar.html");
+      });
+    </script>
   </head>
   <body>
     <div w3-include-html="top_bar.html"></div>
