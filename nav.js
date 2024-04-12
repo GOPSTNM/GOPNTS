@@ -1,4 +1,4 @@
-fetch('top_bar.html')
+fetch('https://mtr-viewer.rocteccloud.com/nsl_trainload_full.html')
 .then(res => res.text())
 .then(text => {
     let oldelem = document.querySelector("script#replace_with_navbar");
