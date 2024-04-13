@@ -31,8 +31,20 @@
     </div>
     <script>
       var url = window.location.pathname;
-      var filename = url.substring(url.lastIndexOf('/')+1);
-      $('a[href*="' + filename + '"]').addClass('active');
+var filename = url.substring(url.lastIndexOf('/')+1);
+var file = filename.split(".");
+var TagItems = document.getElementsByClassName("nav-item");
+for(navitem of TagItems)
+    {
+        for(item of navitem.children)
+            {
+              var targetFile = item.getAttribute("href").split(".");
+                if(targetFile[0] == file[0])
+                    navitem.classList.add("active");
+                else
+                    navitem.classList.remove("active");
+            }
+    }
     </script>
   </body>
 </html>
