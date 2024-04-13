@@ -29,5 +29,10 @@
       <a href="nexttrain.html">Next Train</a>
       <a href="lightrail.html">Light Rail</a>
     </div>
+    <script>
+      var url = window.location.pathname;
+      var filename = url.substring(url.lastIndexOf('/')+1);
+      $('a[href*="' + filename + '"]').addClass('active');
+    </script>
   </body>
 </html>
