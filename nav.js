@@ -5,4 +5,8 @@ fetch('navbar.html')
     let newelem = document.createElement("div");
     newelem.innerHTML = text;
     oldelem.parentNode.replaceChild(newelem,oldelem);
+    
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/')+1);    
+    $('a[href*="' + filename + '"]').addClass('active');
 })
