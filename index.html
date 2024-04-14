@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-    <script id="replace_with_navbar" src="nav.js"></script>
+    <script id="replace_with_navbar" src="nav.js">Home.classList.add("active");</script>
     This is homepage.
     <script>
       var url = window.location.pathname;
@@ -15,7 +15,7 @@ for(navitem of TagItems)
             {
               var targetFile = item.getAttribute("href").split(".");
                 if(targetFile[0] == file[0])
-                    navitem.classList.add("active");
+                    
                 else
                     navitem.classList.remove("active");
             }
