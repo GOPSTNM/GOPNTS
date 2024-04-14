@@ -4,22 +4,5 @@
   <body>
     <script id="replace_with_navbar" src="nav.js">Home.classList.add("active");</script>
     This is homepage.
-    <script>
-      var url = window.location.pathname;
-var filename = url.substring(url.lastIndexOf('/')+1);
-var file = filename.split(".");
-var TagItems = document.getElementsByClassName("nav-item");
-for(navitem of TagItems)
-    {
-        for(item of navitem.children)
-            {
-              var targetFile = item.getAttribute("href").split(".");
-                if(targetFile[0] == file[0])
-                    
-                else
-                    navitem.classList.remove("active");
-            }
-    }
-    </script>
   </body>
 </html>
