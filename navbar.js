@@ -1,4 +1,3 @@
-alert(page);
 fetch('navbar.html')
 .then(res => res.text())
 .then(text => {
