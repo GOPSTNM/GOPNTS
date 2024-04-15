@@ -3,6 +3,6 @@ fetch('navbar.html')
 .then(text => {
     let oldelem = document.querySelector("script#replace_with_navbar");
     let newelem = document.createElement("div");
-    newelem.innerHTML = text;
+    newelem.innerHTML = text + page;
     oldelem.parentNode.replaceChild(newelem,oldelem);
 })
