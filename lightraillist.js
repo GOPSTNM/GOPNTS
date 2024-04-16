@@ -1,3 +1,4 @@
+write("<option selected="true" disabled="true">Choose a stop</option>");
 const zone1 = ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美樂", "Butterfly 蝴蝶",
                "Light Rail Depot 輕鐵車廠", "Lung Mun 龍門", "Siu Hei 兆禧",
                "Tuen Mun Swimming Pool 屯門泳池", "Goodview Garden 豐景園",
@@ -7,4 +8,7 @@ const zone2 = ["Tsing Shan Tsuen 青山村"];
 const zone2data = [40];
 function zonechange() {
   document.getElementById("lightrailstop").innerHTML = "hi";
+}
+function write(cont) {
+  document.getElementById("lightrailstop").innerHTML = cont;
 }
