@@ -7,3 +7,4 @@ const zone2 = ["Tsing Shan Tsuen 青山村"];
 const zone2data = [40];
 function zonechanged() {
   alert(document.getElementById("lightrailzone"));
+}
