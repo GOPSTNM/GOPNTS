@@ -7,8 +7,9 @@ const zone2 = ["Tsing Shan Tsuen 青山村"];
 const zone2data = [40];
 function zonechange() {
   precont = "<option selected="true" disabled="true">Choose a stop 選擇車站</option>";
-  for (let i = 0; i < window.document.getElementById("lightrailzone").length; i++) {
-    precont = precont + "<option selected="true" disabled="true">Stop 車站</option>";
+  const zonestoplist = document.getElementById("lightrailzone");
+  for (let i = 0; i < window.zonestoplist.length; i++) {
+    const precont = precont + "<option>Stop 車站</option>";
   }
   write(precont);
 }
