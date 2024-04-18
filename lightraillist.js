@@ -24,5 +24,5 @@ function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
 }
 function addstopdata(apivalue, stopdisplayname) {
-  var precont = precont + "<option value=" + apivalue + ">" + stopdisplayname + "</option>";
+  　alert("<option value=" + apivalue + ">" + stopdisplayname + "</option>");
 }
