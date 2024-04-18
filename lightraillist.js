@@ -4,8 +4,7 @@ var lrstop = { zone1 = ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美�
                "Siu Lun 兆麟", "Sam Shing 三聖"], 
               zone1data = [1, 10, 15, 20, 30, 240, 250, 260, 265, 920], 
               zone2 = ["Tsing Shan Tsuen 青山村"], 
-              zone2data = [40]
-             };
+              zone2data = [40]};
 function zonechange() {
   var currzone = document.getElementById("lightrailzone").value;
   alert(currzone);
