@@ -11,6 +11,7 @@ function zonechange() {
   var currzone = document.getElementById("lightrailzone").value;
   alert(currzone);
   alert(lrstop[currzone][0]);
+  write("<option value=0>已選擇收費區</option>");
 }
 function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
