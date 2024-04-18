@@ -9,8 +9,7 @@ var lrstop = {
 };
 function zonechange() {
   var currzone = document.getElementById("lightrailzone").value;
-  alert(currzone);
-  alert(lrstop[currzone][0]);
+  alert(lrstop[currzone].length);
   write("<option value=0>已選擇收費區</option>");
 }
 function write(cont) {
