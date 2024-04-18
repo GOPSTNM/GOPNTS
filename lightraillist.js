@@ -13,7 +13,7 @@ function zonechange() {
   var precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>";
   for (let i = 0; i < times; i++) {
     alert(precont);
-    var dataname = lrstop[currzone + "data"][i]
+    var dataname = lrstop[currzone + "data"][i];
     addstopdata(dataname, lrstop[currzone][i]);
   }
   write(precont);
