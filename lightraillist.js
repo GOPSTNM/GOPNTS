@@ -15,7 +15,7 @@ function zonechange() {
   alert(lrstop[currzone + "data"][0]);
   for (let i = 0; i < times; i++) {
     alert(precont);
-    var dataname = lrstop[currzone + "data"][i];
+    alert(lrstop[currzone + "data"][i]);
     addstopdata(dataname, lrstop[currzone][i]);
   }
   write(precont);
