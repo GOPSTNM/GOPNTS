@@ -9,8 +9,9 @@ var lrstop = {
 };
 function zonechange() {
   var currzone = document.getElementById("lightrailzone").value;
-  alert(lrstop[currzone].length);
-  write("<option value=0>已選擇收費區</option>");
+  var times = lrstop[currzone].length;
+  var precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>";
+  write(precont);
 }
 function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
