@@ -11,7 +11,7 @@ function zonechange() {
   var currzone = document.getElementById("lightrailzone").value;
   var times = lrstop[currzone].length;
   var precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>";
-  alert(lrstop[currzone + "data"][i]);
+  alert(lrstop[currzone + "data"][0]);
   for (let i = 0; i < times; i++) {
     alert(precont);
     var dataname = lrstop[currzone + "data"][i];
