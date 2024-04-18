@@ -7,7 +7,7 @@ const zone2 = ["Tsing Shan Tsuen 青山村"];
 const zone2data = [40];
 function zonechange() {
   alert(zone1.toString());
-  alert(document.getElementById("lightrailzone"));
+  alert(document.getElementById("lightrailzone").value);
 }
 function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
