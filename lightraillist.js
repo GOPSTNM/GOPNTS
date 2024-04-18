@@ -8,6 +8,7 @@ var lrstop = {
   zone2data: [40]
 };
 function zonechange() {
+  alert("changed");
   var currzone = document.getElementById("lightrailzone").value;
   var times = lrstop[currzone].length;
   var precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>";
