@@ -9,7 +9,7 @@ var lrstop = { zone1 = ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美�
 function zonechange() {
   var currzone = document.getElementById("lightrailzone").value;
   alert(currzone);
-  alert(lrstop[currzone]);
+  alert(lrstop[currzone][0]);
 }
 function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
