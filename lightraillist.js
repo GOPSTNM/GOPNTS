@@ -9,6 +9,8 @@ var lrstop = {
 };
 function zonechange() {
   alert("changed");
+  const precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>"
+  write(precont);
 }
 function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
