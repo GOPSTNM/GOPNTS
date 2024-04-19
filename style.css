@@ -9,7 +9,6 @@
 input[type=text], select {
   width: 450px;
   padding: 20px 0px;
-  margin: 16px 0;
   display: inline-block;
   border: 2px solid DarkOrange;
   border-radius: 6px;
