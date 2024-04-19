@@ -7,7 +7,7 @@
   font-family: "Lucida Console", "Courier New", monospace;
 }
 input[type=text], select {
-  width: 450px;
+  width: 100%;
   padding: 20px 0px;
   display: inline-block;
   border: 2px solid DarkOrange;
