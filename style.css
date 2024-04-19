@@ -9,9 +9,9 @@
 input[type=text], select {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 16px 0;
   display: inline-block;
-  border: 1px solid DarkOrange;
-  border-radius: 4px;
+  border: 2px solid DarkOrange;
+  border-radius: 6px;
   box-sizing: border-box;
 }
