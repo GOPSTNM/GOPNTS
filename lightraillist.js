@@ -9,7 +9,7 @@ var lrstop = {
 };
 function zonechange() {
   alert("changed");
-  const precont = "<option selected="true" value=0>Choose a stop 選擇車站</option>"
+  const precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option> <option value=0>車站</option>"
   write(precont);
 }
 function write(cont) {
