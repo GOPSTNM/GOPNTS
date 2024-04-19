@@ -9,13 +9,7 @@ var lrstop = {
 };
 function zonechange() {
   alert("changed");
-  var precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>";
-  alert(lrstop[currzone + "data"][0]);
-  write(precont);
 }
 function write(cont) {
   document.getElementById("lightrailstop").innerHTML = cont;
-}
-function addstopdata(apivalue, stopdisplayname) {
-  　alert("<option value=" + apivalue + ">" + stopdisplayname + "</option>");
 }
