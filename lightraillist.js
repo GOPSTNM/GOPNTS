@@ -9,15 +9,8 @@ var lrstop = {
 };
 function zonechange() {
   alert("changed");
-  var currzone = document.getElementById("lightrailzone").value;
-  var times = lrstop[currzone].length;
   var precont = "<option selected="true" disabled="true" value=0>Choose a stop 選擇車站</option>";
   alert(lrstop[currzone + "data"][0]);
-  for (let i = 0; i < times; i++) {
-    alert(precont);
-    alert(lrstop[currzone + "data"][i]);
-    addstopdata(dataname, lrstop[currzone][i]);
-  }
   write(precont);
 }
 function write(cont) {
