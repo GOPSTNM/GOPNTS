@@ -17,6 +17,8 @@
     </div>
   </body>
   <script>
-    fetch("https://mtr-viewer.rocteccloud.com/nsl_trainload_full.html");
+    fetch("https://mtr-viewer.rocteccloud.com/nsl_trainload_full.html").then(response => response.json()).then(function(data){
+      alert(data);
+    }
   </script>
 </html>
