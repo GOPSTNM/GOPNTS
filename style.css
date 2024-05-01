@@ -5,7 +5,7 @@
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
 }
-input[type=text], select {
+input[type=text], input[type=button], select {
   height: 20px;
   width: 300px;
   padding: 20px 5px;
@@ -21,13 +21,5 @@ select {
   height: 44px;
 }
 input[type=button] {
-  height: 20px;
-  width: 300px;
-  padding: 20px 5px;
-  display: inline-block;
-  border: 2px solid DarkOrange;
-  border-radius: 6px;
-  box-sizing: border-box;
-  color: Black;
-  font-size: 20px;
+  background-color: DarkOrange;
 }
