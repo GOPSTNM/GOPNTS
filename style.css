@@ -24,7 +24,7 @@ select {
 input[type=button]{
   width: 300px;
   background-color: DarkOrange;
-  padding: 5px 10px 5px;
+  padding: 4px 11px 5px;
   margin: 2px;
   color: white;
   font-size: 25px;
