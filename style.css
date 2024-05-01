@@ -8,7 +8,7 @@
 input[type=text], input[type=button], select {
   height: 20px;
   width: 300px;
-  padding: 0px 5px;
+  padding: 20px 5px;
   display: inline-block;
   border: 2px solid DarkOrange;
   border-radius: 6px;
