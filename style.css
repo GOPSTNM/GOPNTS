@@ -29,4 +29,5 @@ input[type=button] {
   display: inline-block;
   font-size: 25px;
   border: 2px solid DarkOrange;
+  border-radius: 6px;
 }
