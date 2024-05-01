@@ -28,6 +28,6 @@ input[type=button] {
   text-decoration: none;
   display: inline-block;
   font-size: 25px;
-  border: 2px solid DarkOrange;
+  border: 20px 5px;
   border-radius: 6px;
 }
