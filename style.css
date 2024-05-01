@@ -6,7 +6,7 @@
   font-weight: bold;
   font-family: "Lucida Console", "Courier New", monospace;
 }
-input[type=text], select {
+input[type=text] {
   height:20px;
   width: 100%;
   padding: 20px 0px;
