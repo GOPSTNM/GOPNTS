@@ -24,11 +24,9 @@ input[type=button] {
   width: 300px;
   background-color: DarkOrange;
   color: white;
-  padding: 20px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 25px;
-  border: 20px 5px;
   border-radius: 6px;
 }
