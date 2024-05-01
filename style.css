@@ -20,7 +20,7 @@ select {
   height: 44px;
 }
 input[type=button] {
-  background-color: DarkOrange
+  background-color: DarkOrange;
   color: white;
   padding: 15px 32px;
   text-align: center;
