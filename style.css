@@ -15,6 +15,7 @@ input[type=text], select {
   box-sizing: border-box;
   color: Black;
   font-size: 20px;
+  background-color: white;
 }
 select {
   height: 44px;
