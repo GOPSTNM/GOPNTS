@@ -26,4 +26,5 @@ input[type=button]{
   background-color: DarkOrange;
   padding: 20px 10px 5px 5px;
   margin: 2px;
+  border: 2px solid DarkOrange;
 }
