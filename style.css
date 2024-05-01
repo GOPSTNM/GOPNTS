@@ -22,7 +22,6 @@ select {
 }
 input[type=button] {
   background-color: DarkOrange;
-  position: relative;
   top: 20px;
   color: white;
 }
