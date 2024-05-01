@@ -29,8 +29,8 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <script>
       function lookfortrain () {
-        var stninput = document.getElementById ("stninput"). value;
-        var lineinput = document.getElementById ("lineinput"). value;
+        var stninput = document.getElementById("stninput").value;
+        var lineinput = document.getElementById("lineinput").value;
         const api = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php";
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
