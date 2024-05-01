@@ -20,11 +20,13 @@ select {
   height: 44px;
 }
 input[type=button] {
+  width: 300px;
   background-color: DarkOrange;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 25px;
+  border: 2px solid DarkOrange;
 }
