@@ -34,6 +34,9 @@
         var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         alert(url);
+        fetch(url).then(response => response.json()).then(function(data){
+          if (data["message"]== "successful"){alert("good");}else{alert("bad");}
+        }
       }
     </script>
   </body>
