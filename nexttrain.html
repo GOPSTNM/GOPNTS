@@ -10,7 +10,7 @@
   <body>
     <script id="replace_with_navbar" src="nav.js"></script>
     <div class="text1">
-      MTR Next Train</br>
+      MTR Next Train 2.0</br>
       Please choose line & station</br>
     </div>
     <select id="lineinput">
@@ -34,7 +34,7 @@
         var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         alert(url);
-        fetch(url).then(response => response.json()).then(function(data){alert("hi");};
+        fetch(url).then(response => response.json()).then(function(data){alert("hi");});
       }
     </script>
   </body>
