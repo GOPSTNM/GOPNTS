@@ -45,10 +45,10 @@
           for (let i = 0; i < 4; i++) {
             var table = table + "<tr>";
             var table = table + "<td>" + data[dir][i]["dest"] + "</td>";
-            if data[dir][i]["route"] == "" or data[dir][i]["route"]===undefined{
-              var rac = "Not Via Racecourse";
-            }else{
+            if (data[dir][i]["route"] == "RAC") {
               var rac = "Via Racecourse";
+            } else {
+              var rac = "Not Via Racecourse";
             }
             var table = table + "<td>" + rac + "</td>";
             var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
