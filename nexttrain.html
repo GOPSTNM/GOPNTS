@@ -37,8 +37,8 @@
         fetch(url).then(response => response.json()).then(function(data){
           alert("hi");
           var newdata = JSON.stringify(data);
+          alert(JSON.parse(newdata["data"][lineinput + "-" + stninput][dir][seq][cont]));
         });
-        lookfordata("UP", 1, "dest");
       }
       function lookfordata(dir, seq, cont) {
         alert(JSON.parse(newdata["data"][lineinput + "-" + stninput][dir][seq][cont]));
