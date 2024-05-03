@@ -34,11 +34,11 @@
         var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         alert("URL is " + url);
-        fetch(url).then(response => response.json()).then(function(data){var data = data});
+        fetch(url).then(response => response.json()).then(function(data){var newdata = data});
         alert(lookfordata("UP", 1, "dest"));
       }
       function lookfordata(dir, seq, cont) {
-        return data["data"][lineinput + "-" + stninput][dir][seq][cont];
+        return newdata["data"][lineinput + "-" + stninput][dir][seq][cont];
       }
     </script>
   </body>
