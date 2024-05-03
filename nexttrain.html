@@ -27,9 +27,7 @@
     </select>
     <input type="text" id="stninput" placeholder="Enter Station Code">
     <input type="button" onclick="lookfortrain ()" value="Find">
-    <div class="text2">
-      <p id="data"></p>
-    </div>
+    <p id="data"></p>
     <script>
       function lookfortrain () {
         var stninput = document.getElementById("stninput").value.toUpperCase();
@@ -43,7 +41,7 @@
         var table = "";
         var dir = "UP";
         for (let i = 0; i < 2; i++) {
-          var table = table + "<table>";
+          var table = table + "<table><div class="text2">";
           for (let i = 0; i < 4; i++) {
             var table = table + "<tr>";
             var table = table + "<td>" + data[dir][i]["dest"] + "</td>";
@@ -57,7 +55,7 @@
             var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
             var table = table + "</tr>";
           }
-          var table = table + "</table></br>";
+          var table = table + "</div></table></br></br>";
           var dir = "DOWN";
         }
         document.getElementById("data").innerHTML = table;
