@@ -36,12 +36,12 @@
         alert("URL is " + url);
         fetch(url).then(response => response.json()).then(function(data){
           alert("hi");
-          var newdata = JSON.parse(data);
+          var newdata = JSON.stringify(data);
         });
         lookfordata("UP", 1, "dest");
       }
       function lookfordata(dir, seq, cont) {
-        alert(newdata."data".lineinput + "-" + stninput.dir.seq.cont);
+        alert(JSON.parse(newdata["data"][lineinput + "-" + stninput][dir][seq][cont]));
       }
     </script>
   </body>
