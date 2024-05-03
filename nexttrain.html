@@ -38,8 +38,14 @@
         });
       }
       function upd(data) {
-        var x = data["UP"][1]["dest"];
-        document.getElementById("data").innerHTML = x;
+        var dir = "UP";
+        for (let i = 0; i < 2; i++) {
+          for (let i = 0; i < 4; i++) {
+            var x = data["UP"][1]["dest"];
+            document.getElementById("data").innerHTML = x;
+          }
+          var dir = "DOWN";
+        }
       }
     </script>
   </body>
