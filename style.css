@@ -19,6 +19,7 @@ input[type=text], select {
   margin: 2px;
 }
 select {
+  height: 44px;
 }
 input[type=button]{
   width: 300px;
