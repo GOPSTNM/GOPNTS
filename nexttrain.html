@@ -29,11 +29,9 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <script>
       function lookfortrain () {
-        alert("Testing Message");
         var stninput = document.getElementById("stninput").value.toUpperCase();
         var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
-        alert(url);
         fetch(url).then(response => response.json()).then(function(data){
           upd (data);
         });
