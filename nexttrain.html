@@ -41,13 +41,13 @@
         var table = "";
         var dir = "UP";
         for (let i = 0; i < 2; i++) {
-          var table = table + "<table><tr>";
+          var table = table + "<table>";
           for (let i = 0; i < 4; i++) {
-            alert(dir);
-            alert(i);
+            var table = table + "<tr>";
             var table = table + "<td>" + data[dir][i]["dest"] + "</td>";
+            var table = table + "</tr>";
           }
-          var table = table + "</tr></table>";
+          var table = table + "</table>";
           var dir = "DOWN";
         }
         document.getElementById("data").innerHTML = table;
