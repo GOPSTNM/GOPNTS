@@ -35,9 +35,14 @@
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         alert("URL is " + url);
         fetch(url).then(response => response.json()).then(function(data){
-          alert("hi");
+          const data = data;
+          upd();
         });
-        alert("hi2");
+      }
+      function upd() {
+        alert(data["message"]);
+      }
+      function getdata(dir, seq, cont){
       }
     </script>
   </body>
