@@ -41,11 +41,13 @@
         var dir = "UP";
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
-            var x = data["UP"][1]["dest"];
-            document.getElementById("data").innerHTML = x;
+            var table = "<tr>";
+            var table = table + "<td>" + data[dir][i]["dest"] + "</td>";
+            var table = table + "</tr>";
           }
           var dir = "DOWN";
         }
+        document.getElementById("data").innerHTML = table;
       }
     </script>
   </body>
