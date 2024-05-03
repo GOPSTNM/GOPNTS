@@ -36,7 +36,7 @@
         alert("URL is " + url);
         fetch(url).then(response => response.json()).then(function(data){
           alert("hi");
-          var newdata = data;
+          var newdata = JSON.parse(data);
         });
         lookfordata("UP", 1, "dest");
       }
