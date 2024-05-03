@@ -37,7 +37,8 @@
         });
       }
       function upd(data) {
-        alert(getdata(data, "UP", 1, "dest").value);
+        var x = getdata(data, "UP", 1, "dest");
+        alert(x);
       }
       function getdata(data, dir, seq, cont){
         return data["data"][lineinput + "-" + stninput][dir][seq][cont];
