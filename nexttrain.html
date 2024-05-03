@@ -35,7 +35,8 @@
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         alert(url);
         fetch(url).then(response => response.json()).then(function(data){alert(var newdata = data;});
-        alert(lookfordata("UP", 1, "dest"));
+        lookfordata("UP", 1, "dest");
+        alert(reqdata);
       }
       function lookfordata (dir, seq, cont) {
         var reqdata = newdata[lineinput + "-" + stninput][dir][seq][cont];
