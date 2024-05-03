@@ -33,16 +33,13 @@
         var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
-          upd (data);
+          upd (data["data"][lineinput + "-" + stninput]);
         });
       }
       function upd(data) {
         alert("hi");
-        var x = getdata(data,"UP",1,"dest");
+        var x = data["UP"][1]["dest"];
         alert(x);
-      }
-      function getdata(data,dir,seq,cont){
-        return "hi" + data["data"][lineinput + "-" + stninput][dir][seq][cont];
       }
     </script>
   </body>
