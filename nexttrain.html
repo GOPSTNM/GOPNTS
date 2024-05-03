@@ -40,11 +40,11 @@
       function upd(data) {
         var dir = "UP";
         for (let i = 0; i < 2; i++) {
-          var table = "<tr>";
+          var table = "<table><tr>";
           for (let i = 0; i < 4; i++) {
             var table = table + "<td>" + data[dir][i]["dest"] + "</td>";
           }
-          var table = table + "</tr>";
+          var table = table + "</tr></table>";
           var dir = "DOWN";
         }
         document.getElementById("data").innerHTML = table;
