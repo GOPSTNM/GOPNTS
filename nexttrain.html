@@ -38,10 +38,10 @@
       }
       function upd(data) {
         alert("hi");
-        var x = getdata(data, "UP", 1, "dest");
+        var x = getdata(data,"UP",1,"dest");
         alert(x);
       }
-      function getdata(data, dir, seq, cont){
+      function getdata(data,dir,seq,cont){
         return (data["data"][lineinput + "-" + stninput][dir][seq][cont]);
       }
     </script>
