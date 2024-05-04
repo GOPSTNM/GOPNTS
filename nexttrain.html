@@ -42,7 +42,7 @@
       }
       function upd(data) {
         var dir = "UP";
-        var table = "<table><tr>" + document.getElementById("stninput").value + " Station</tr><tr><td>Destination</td><td>Platform</td><td>Time</td></tr>";
+        var table = "<table><tr><td colspan=2>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td>Platform</td><td>Time</td></tr>";
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
             if (data[dir][i]["dest"] != "undefined"){
