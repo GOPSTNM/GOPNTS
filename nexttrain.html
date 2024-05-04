@@ -45,7 +45,7 @@
         var table = "<table><tr><td colspan=3>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td>Platform</td><td>Time</td></tr>";
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
-            if (data[dir][i] === undefined) or (data[dir] === undefined){
+            if (data[dir][i] or data[dir] === undefined){
               alert("no data");
             } else {
               var table = table + "<tr>";
