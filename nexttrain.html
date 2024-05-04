@@ -35,7 +35,7 @@
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           upd (data["data"][lineinput + "-" + stninput]);
-          if (data["message"] != "successful"){
+          if (data["message"] !== "successful"){
             alert("message");
           }
         });
@@ -51,7 +51,7 @@
             if (data[dir][i]["route"] == "RAC") {
               var rac = "Via Racecourse";
             } else {
-              var rac = "Not Via Racecourse";
+              var rac = "";
             }
             var table = table + "<td>" + rac + "</td>";
             var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
