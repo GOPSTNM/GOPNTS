@@ -45,10 +45,10 @@
         var table = "<table><tr><td colspan=3>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td>Platform</td><td>Time</td></tr>";
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
-            alert(data[dir][i]["dest"]);
             if (data[dir][i]["dest"] === undefined){
               alert("no data");
             } else {
+              alert("with data");
               var table = table + "<tr>";
               if (data[dir][i]["route"] == "RAC") {
                 var rac = " Via Racecourse";
