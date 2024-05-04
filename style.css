@@ -6,6 +6,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 td {
+  padding: 5px;
   color: Navy;
   text-align: left;
   padding: 5px 0px;
