@@ -6,7 +6,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 table, td, th {
-  border: 5px hidden black;
+  border: 5px solid white;
 }
 th, td {
   color: Navy;
