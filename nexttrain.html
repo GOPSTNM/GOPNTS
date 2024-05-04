@@ -44,16 +44,15 @@
         var table = "";
         var dir = "UP";
         for (let i = 0; i < 2; i++) {
-          var table = table + "<table><td>Destination</td><td></td><td>Platform</td><td>Time</td>";
+          var table = table + "<table><td>Destination</td><td>Platform</td><td>Time</td>";
           for (let i = 0; i < 4; i++) {
             var table = table + "<tr>";
-            var table = table + "<td>" + data[dir][i]["dest"] + "</td>";
             if (data[dir][i]["route"] == "RAC") {
-              var rac = "Via Racecourse";
+              var rac = " Via Racecourse";
             } else {
               var rac = "";
             }
-            var table = table + "<td>" + rac + "</td>";
+            var table = table + "<td>" + data[dir][i]["dest"] + rac + "</td>";
             var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
             var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
             var table = table + "</tr>";
