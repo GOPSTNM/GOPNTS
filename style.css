@@ -5,9 +5,9 @@
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
 }
-table, td{
-  /*Not In Use*/
-  /*border: 10px solid white;*/
+tr:nth-child(even) {
+  background-color: LightSkyBlue;
+  color: white;
 }
 td {
   padding: 8px 10px;
