@@ -25,7 +25,7 @@
       <option value="AEL">Airport Express</option>
       <option value="TCL">Tung Chung Line</option>
     </select>
-    <input type="text" id="stninput" placeholder="Enter Station Code">
+    <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
@@ -62,6 +62,12 @@
           var dir = "DOWN";
         }
         document.getElementById("data").innerHTML = table;
+      }
+      function key() {
+        let enter = document.getElementById("stninput");
+        enter.value = enter.value.toUpperCase();
+        if (event.key === 'Enter') {
+          alert('Entered')}
       }
     </script>
   </body>
