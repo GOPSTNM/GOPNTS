@@ -41,10 +41,10 @@
         });
       }
       function upd(data) {
-        var table = "";
+        var table;
         var dir = "UP";
+        var table = table + "<table><td>Destination</td><td>Platform</td><td>Time</td>";
         for (let i = 0; i < 2; i++) {
-          var table = table + "<table><td>Destination</td><td>Platform</td><td>Time</td>";
           for (let i = 0; i < 4; i++) {
             var table = table + "<tr>";
             if (data[dir][i]["route"] == "RAC") {
@@ -57,9 +57,9 @@
             var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
             var table = table + "</tr>";
           }
-          var table = table + "</table></br></br>";
           var dir = "DOWN";
         }
+        var table = table + "</table>";
         document.getElementById("data").innerHTML = table;
       }
       function key() {
