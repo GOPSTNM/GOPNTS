@@ -5,10 +5,10 @@
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
 }
-table, td, th {
+table, td{
   border: 10px solid white;
 }
-th, td {
+td {
   color: Navy;
   text-align: left;
   padding: 5px 0px;
