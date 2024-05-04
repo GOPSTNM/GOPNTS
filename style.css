@@ -5,10 +5,8 @@
   font-size: 25px;
   font-family: Arial, Helvetica, sans-serif;
 }
-table {
-  padding: 30px;
-}
 th, td {
+  padding: 30px;
   color: Navy;
   text-align: left;
   padding: 5px 0px;
