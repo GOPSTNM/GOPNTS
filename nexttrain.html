@@ -30,7 +30,7 @@
     <p id="data"></p>
     <script>
       function lookfortrain () {
-        var stninput = document.getElementById("stninput").value.toUpperCase();
+        var stninput = document.getElementById("stninput").value;
         var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
@@ -67,7 +67,8 @@
         let enter = document.getElementById("stninput");
         enter.value = enter.value.toUpperCase();
         if (event.key === 'Enter') {
-          alert('Entered')}
+          lookfortrain();
+        }
       }
     </script>
   </body>
