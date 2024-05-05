@@ -35,7 +35,11 @@
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
-            alert("No Data. Please check the station code.");
+            if (data["message"] == "Data is not available (0).") {
+              alert("No Data. Because of wrong station code.");
+            } else {
+              alert("No Data. Because of an incident on the line.");
+            }
           } else {
           upd (data["data"][lineinput + "-" + stninput]);
           }
@@ -63,7 +67,7 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          alert("No Data. Because there is no trains or MTR closed the data.");
+          alert("No Data. Because there is no train data from the data source.");
         }
         var table = table + "</table>";
         document.getElementById("data").innerHTML = table;
