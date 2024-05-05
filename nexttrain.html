@@ -68,9 +68,10 @@
         }
         if (table == testtable) {
           alert("No Data. Because there is no train data from the data source.");
+        } else {
+          var table = table + "</table>";
+          document.getElementById("data").innerHTML = table;
         }
-        var table = table + "</table>";
-        document.getElementById("data").innerHTML = table;
       }
       function key() {
         let enter = document.getElementById("stninput");
