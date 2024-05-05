@@ -37,11 +37,11 @@
           if (data["status"] == 0) {
             alert("No Data. Please check the station code.");
           }
+          alert(url);
           upd (data["data"][lineinput + "-" + stninput]);
         });
       }
       function upd(data) {
-        alert(url);
         var dir = "UP";
         var table = "<table><tr><td colspan=3>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td>Platform</td><td>Time</td></tr>";
         for (let i = 0; i < 2; i++) {
