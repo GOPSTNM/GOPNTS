@@ -29,6 +29,10 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
+      const stn = {
+        "TUM": "Tuen Mun", "MEF": "Mei Foo", "WKS": "Wu Kai Sha", "DIH": "Diamond Hill", 
+      }
+      alert (stn."TUM");
       function lookfortrain () {
         var stninput = document.getElementById("stninput").value;
         var lineinput = document.getElementById("lineinput").value;
