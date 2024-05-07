@@ -62,8 +62,8 @@
                 var rac = "";
               }
               let dest = data[dir][i]["dest"];
-              if (typeof stn[dest] !== undefined) {
-                var dest = stn[dest];
+              if (stn[dest] !== undefined) {
+                alert(stn[dest]);
               }
               var table = table + "<td>" + dest + rac + "</td>";
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
