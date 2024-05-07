@@ -62,7 +62,8 @@
               } else {
                 var rac = "";
               }
-              var table = table + "<td>" + data[dir][i]["dest"] + rac + "</td>";
+              let dest = data[dir][i]["dest"];
+              var table = table + "<td>" + dest + rac + "</td>";
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
               var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
               var table = table + "</tr>";
