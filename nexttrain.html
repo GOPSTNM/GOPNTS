@@ -61,10 +61,12 @@
               } else {
                 var rac = "";
               }
+              let dest = data[dir][i]["dest"];
               if (stn[data[dir][i]["dest"]] === undefined) {
-                var table = table + "<td>" + data[dir][i]["dest"] + rac + "</td>";
+                var table = table + "<td>" + dest + rac + "</td>";
               } else {
-                var table = table + "<td>" + stn[data[dir][i]["dest"]] + rac + "</td>";
+                alert(stn[dest]);
+                var table = table + "<td>" + stn[dest] + rac + "</td>";
               }
               var table = table + "<td>" + dest + rac + "</td>";
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
