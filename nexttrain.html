@@ -61,11 +61,10 @@
               } else {
                 var rac = "";
               }
-              let dest = data[dir][i]["dest"];
-              if (stn[dest] !== undefined) {
-                let predest = stn[dest];
-                alert(predest);
-                alert(typeof predest);
+              if (stn[dest] === undefined) {
+                var table = table + "<td>" + data[dir][i]["dest"] + rac + "</td>";
+              } else {
+                var table = table + "<td>" + stn[dest] + rac + "</td>";
               }
               var table = table + "<td>" + dest + rac + "</td>";
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
