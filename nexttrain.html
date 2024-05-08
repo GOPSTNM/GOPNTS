@@ -69,7 +69,6 @@
               var table = table + "<tr>";
               let dest = data[dir][i]["dest"];
               if (data[dir][i]["route"] == "RAC") {
-                var rac = " Via Racecourse";
                 if (stn[dest] !== undefined) {
                   var table = table + "<td><div class='blink'>" + stn[dest] + " Via Racecourse</div></td>";
                 } else if (specialstn[dest] !== undefined) {
@@ -84,6 +83,7 @@
                   var table = table + "<td><div class='blink'>" + specialstn[dest] + "</div></td>";
                 } else {
                   var table = table + "<td>" + dest + "</td>";
+                }
               }
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
               var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
@@ -99,7 +99,6 @@
           var table = table + "</table>";
           document.getElementById("data").innerHTML = table;
         }
-      }
       }
       function key() {
         let enter = document.getElementById("stninput");
