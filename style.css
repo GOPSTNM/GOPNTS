@@ -45,7 +45,7 @@ input[type=button]{
   border: 2px solid DarkOrange;
 }
 .blink {
- animation: blink 2s linear infinite;
+ animation: blink 3s linear infinite;
 }
 @keyframes blink {
  0% {
