@@ -44,3 +44,17 @@ input[type=button]{
   font-size: 20px;
   border: 2px solid DarkOrange;
 }
+.blink {
+ animation: blink 3s linear infinite;
+}
+@keyframes blinkMe {
+ 0% {
+  opacity: 0;
+ }
+ 50% {
+  opacity: 1;
+ }
+ 100% {
+  opacity: 0;
+ }
+}
