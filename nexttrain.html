@@ -76,8 +76,8 @@
               }
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
               var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
-              var min = new Date(data[dir][i]["time"]) - new Date().getMinutes();
-              var table = table + "<td>" + min + "</td>";
+              var min = new Date(data[dir][i]["time"]) - new Date();
+              var table = table + "<td>" + min.getMinutes() + "</td>";
               var table = table + "</tr>";
             }
           }
