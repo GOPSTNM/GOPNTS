@@ -12,7 +12,6 @@
     <div class="text1">
       MTR Next Train 1.0</br>
       Choose Line & Station</br>
-      Note: "Choose A Line" is "Tuen Ma Line"</br>
     </div>
     <select id="lineinput">
       <option selected="true" disabled="true" value="1TML">Choose A Line</option>
@@ -56,7 +55,8 @@
       };
       function lookfortrain () {
         var stninput = document.getElementById("stninput").value;
-        var lineinput = document.getElementById("lineinput").value.substr(id.length - 3);
+        var lineinput = document.getElementById("lineinput").value;
+        var lineinput = lineinput.substr(id.length - 3)
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
