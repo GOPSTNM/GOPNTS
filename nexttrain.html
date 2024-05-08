@@ -35,9 +35,9 @@
       }
       if (location.search.split('line=')[1] !== undefined) {
         document.getElementById("lineinput").value = location.search.split('line=')[1].substring(0, 3);
-        // location.search.split('line=')[1].substring(0, 3);
-        //var list = document.getElementById("lineinput");
-        //location.search.split('line=')[1].substring(0, 3) = list.options[list.selectedIndex].text;
+      }
+      if (location.search.split('find=')[1].substring(0, 1) == 1) {
+        lookfortrain();
       }
       const stn = {
         ADM: "Admiralty", 
