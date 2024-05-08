@@ -29,7 +29,9 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
+      if (location.search.split('stn=')[1] !== undefined) {
       document.getElementById("stninput").value = location.search.split('stn=')[1];
+      }
       const stn = {
         ADM: "Admiralty", 
         TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
