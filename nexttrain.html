@@ -35,7 +35,7 @@
       if (location.search.split('line=')[1] !== undefined) {
         // location.search.split('line=')[1].substring(0, 3);
         var list = document.getElementById("lineinput");
-        location.search.split('line=')[1].substring(0, 3) = mylist.options[mylist.selectedIndex].text;
+        location.search.split('line=')[1].substring(0, 3) = list.options[list.selectedIndex].text;
       }
       const stn = {
         ADM: "Admiralty", 
