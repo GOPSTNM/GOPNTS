@@ -30,14 +30,18 @@
     <p id="data"></p>
     <script>
       const stn = {
-        TUM: "Tuen Mun", MEF: "Mei Foo", WKS: "Wu Kai Sha", DIH: "Diamond Hill", 
-        LOW: "Lo Wu", LMC: "Lok Ma Chau", ADM: "<div class='blink'>Admiralty</div>", TAP: "Tai Po Market", 
-        SHT: "Sha Tin", FOT: "Fo Tan", MKK: "Mong Kok East", SHS: "Sheung Shui", 
-        SOH: "South Horizons", TIK: "Tiu Keng Leng", HOM: "Ho Man Tin", 
+        TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
+        LOW: "Lo Wu", LMC: "Lok Ma Chau", ADM: "Admiralty", 
+        SOH: "South Horizons", TIK: "Tiu Keng Leng", 
         WHA: "Whampoa", HOK: "Hong Kong", AWE : "AsiaWorld Expo", TUC: "Tung Chung", 
-        TSY: "Tsing Yi", NOP: "North Point", LHP: "LOHAS Park", POA: "Po Lam", 
+        NOP: "North Point", LHP: "LOHAS Park", POA: "Po Lam", 
         CEN: "Central", TSW: "Tsuen Wan", KET: "Kennedy Town", CHW: "Chai Wan", 
-        PRE: "Prince Edward"
+      };
+      const specialstn = {
+        PRE: "Prince Edward", TSY: "Tsing Yi", HOM: "Ho Man Tin", 
+        TAP: "Tai Po Market", SHT: "Sha Tin", FOT: "Fo Tan", 
+        MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
+        DIH: "Diamond Hill"
       };
       function lookfortrain () {
         var stninput = document.getElementById("stninput").value;
@@ -61,18 +65,28 @@
         var table = testtable;
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
+            var special = 0;
             if (data[dir] !== undefined && data[dir][i] !== undefined){
               var table = table + "<tr>";
               if (data[dir][i]["route"] == "RAC") {
-                var rac = " <div class='blink'>Via Racecourse</div>";
+                var rac = " Via Racecourse";
+                var special = 1;
               } else {
                 var rac = "";
               }
               let dest = data[dir][i]["dest"];
               if (stn[dest] === undefined) {
-                var table = table + "<td>" + dest + rac + "</td>";
+                if (specialstn[dest] !== undefined) {
+                var dest = specialstn[dest];
+                var special = 1;
+                }
               } else {
-                var table = table + "<td>" + stn[dest] + rac + "</td>";
+                var dest = stn[dest];
+              }
+              if (special = 1){
+                var table = table + "<td><div class='blink'>" + dest + rac + "</div></td>";
+              } else {
+                var table = table + "<td>" + dest + rac + "</td>";
               }
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
               var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
