@@ -30,7 +30,7 @@
     <p id="data"></p>
     <script>
       const stn = {
-        TUM: Tuen Mun, MEF: Mei Foo, WKS: Wu Kai Sha, DIH: Diamond Hill
+        TUM: "Tuen Mun", MEF: "Mei Foo", WKS: "Wu Kai Sha", DIH: "Diamond Hill"
       };
       function lookfortrain () {
         var stninput = document.getElementById("stninput").value;
@@ -62,7 +62,7 @@
                 var rac = "";
               }
               let dest = data[dir][i]["dest"];
-              if (stn[data[dir][i]["dest"]] === undefined) {
+              if (stn[dest] === undefined) {
                 var table = table + "<td>" + dest + rac + "</td>";
               } else {
                 alert(stn[dest]);
