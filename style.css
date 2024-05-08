@@ -47,7 +47,7 @@ input[type=button]{
 .blink {
  animation: blink 3s linear infinite;
 }
-@keyframes blinkMe {
+@keyframes blink {
  0% {
   opacity: 0;
  }
