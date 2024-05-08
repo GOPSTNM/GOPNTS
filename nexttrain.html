@@ -29,6 +29,8 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
+      var userurl = window.location.href;
+      document.getElementById("lineinput").innerHTML = userurl.searchParams.get("l");
       const stn = {
         ADM: "Admiralty", 
         TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
