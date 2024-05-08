@@ -29,8 +29,7 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
-      var userurl = window.location.href;
-      var x = userurl.searchParams.get(line);
+      var x = location.search.split('line=')[1];
       alert(x);
       //document.getElementById("lineinput").innerHTML = userurl.searchParams.get("l");
       const stn = {
