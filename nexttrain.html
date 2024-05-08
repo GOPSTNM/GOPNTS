@@ -30,8 +30,12 @@
     <p id="data"></p>
     <script>
       if (location.search.split('stn=')[1] !== undefined) {
-        alert(location.search.split('line=')[1].substring(0, 3));
-        document.getElementById("stninput").value = location.search.split('stn=')[1];
+        document.getElementById("stninput").value = location.search.split('stn=')[1].substring(0, 3);
+      }
+      if (location.search.split('line=')[1] !== undefined) {
+        // location.search.split('line=')[1].substring(0, 3);
+        var list = document.getElementById("lineinput");
+        location.search.split('line=')[1].substring(0, 3) = mylist.options[mylist.selectedIndex].text;
       }
       const stn = {
         ADM: "Admiralty", 
