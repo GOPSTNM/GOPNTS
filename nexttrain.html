@@ -15,7 +15,7 @@
       Note: "Choose A Line" is "Tuen Ma Line"</br>
     </div>
     <select id="lineinput">
-      <option selected="true" disabled="true" value="TML">Choose A Line</option>
+      <option selected="true" disabled="true" value="1TML">Choose A Line</option>
       <option value="TML">Tuen Ma Line</option>
       <option value="TWL">Tsuen Wan Line</option>
       <option value="TKL">Tseung Kwan O Line</option>
@@ -56,7 +56,7 @@
       };
       function lookfortrain () {
         var stninput = document.getElementById("stninput").value;
-        var lineinput = document.getElementById("lineinput").value;
+        var lineinput = document.getElementById("lineinput").value.substr(id.length - 3);
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
