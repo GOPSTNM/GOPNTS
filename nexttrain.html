@@ -76,9 +76,10 @@
               }
               let dest = data[dir][i]["dest"];
               if (stn[dest] === undefined) {
-                if (specialstn[dest] !== undefined) {
-                var dest = specialstn[dest];
-                var special = 1;
+                if (specialstn[dest] === undefined) {
+                } else {
+                  var dest = specialstn[dest];
+                  var special = 1;
                 }
               } else {
                 var dest = stn[dest];
