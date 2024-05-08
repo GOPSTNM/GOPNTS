@@ -30,7 +30,8 @@
     <p id="data"></p>
     <script>
       if (location.search.split('stn=')[1] !== undefined) {
-      document.getElementById("stninput").value = location.search.split('stn=')[1];
+        alert(location.search.split('stn=')[1].substring(1, 3));
+        document.getElementById("stninput").value = location.search.split('stn=')[1];
       }
       const stn = {
         ADM: "Admiralty", 
