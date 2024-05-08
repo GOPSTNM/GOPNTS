@@ -79,7 +79,7 @@
               alert(new Date(data[dir][i]["time"]));
               alert(new Date());
               var min = new Date(data[dir][i]["time"]) - new Date();
-              var table = table + "<td>" + min.getMinutes() + "</td>";
+              var table = table + "<td>" + getMinutes(min) + "</td>";
               var table = table + "</tr>";
             }
           }
