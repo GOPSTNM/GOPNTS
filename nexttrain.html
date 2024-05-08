@@ -30,7 +30,7 @@
     <p id="data"></p>
     <script>
       if (location.search.split('stn=')[1] !== undefined) {
-        alert(location.search.split('line=')[1].substring(3));
+        alert(location.search.split('line=')[1].substring(0, 3));
         document.getElementById("stninput").value = location.search.split('stn=')[1];
       }
       const stn = {
