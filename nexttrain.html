@@ -75,8 +75,8 @@
       function upd(data) {
         var dir = "UP";
         if (location.search.split('m=')[1] !== undefined) {
-        var mes = location.search.split('m=')[1].replace(/%20/g, " ");
-        var testtable = "<table><tr><td colspan=4>" + specialmessage + mes + "</br>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Mins</td></tr>";
+          var mes = location.search.split('m=')[1].replace(/%20/g, " ");
+          var testtable = "<table><tr><td colspan=4>" + specialmessage + mes + "</br>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Mins</td></tr>";
         } else {
           var testtable = "<table><tr><td colspan=4>" + specialmessage + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Mins</td></tr>";
         }
