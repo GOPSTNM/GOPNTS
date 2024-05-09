@@ -35,9 +35,6 @@
       if (location.search.split('line=')[1] !== undefined) {
         document.getElementById("lineinput").value = location.search.split('line=')[1].substring(0, 3);
       }
-      if (location.search.split('line=')[1].substring(0, 1) == "a") {
-        alert("auto find");
-      }
       const stn = {
         ADM: "Admiralty", 
         TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
