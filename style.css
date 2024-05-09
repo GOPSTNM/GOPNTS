@@ -45,10 +45,11 @@ input[type=button]{
   border: 2px solid DarkOrange;
 }
 .blink {
- animation: blink 3s linear infinite;
+  color: DarkOrange;
+  animation: blink 3s linear infinite;
 }
 @keyframes blink {
- 50% {
-  opacity: 0.25;
- }
+  50% {
+    opacity: 0.25;
+  }
 }
