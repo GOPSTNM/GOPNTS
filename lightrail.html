@@ -28,6 +28,15 @@
       <p id="lightrailstop"></p>
     </select>
     <script>
+      const zone1 = {
+        ADM: "Admiralty",
+        TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
+        LOW: "Lo Wu", LMC: "Lok Ma Chau", 
+        SOH: "South Horizons", TIK: "Tiu Keng Leng", 
+        WHA: "Whampoa", HOK: "Hong Kong", AWE : "AsiaWorld Expo", TUC: "Tung Chung", 
+        NOP: "North Point", LHP: "LOHAS Park", POA: "Po Lam", 
+        CEN: "Central", TSW: "Tsuen Wan", KET: "Kennedy Town", CHW: "Chai Wan", 
+      };
       function zonechange() {
         alert("changed");
         var precont = "<option>Choose a stop 選擇車站</option> <option value=0>車站</option>";
