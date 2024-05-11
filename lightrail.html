@@ -28,15 +28,13 @@
       <p id="lightrailstop"></p>
     </select>
     <script>
-      const stn = {
-        {zone1: ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美樂", "Butterfly 蝴蝶", 
-          "Light Rail Depot 輕鐵車廠", "Lung Mun 龍門", "Siu Hei 兆禧",
-          "Tuen Mun Swimming Pool 屯門泳池", "Goodview Garden 豐景園", 
-          "Siu Lun 兆麟", "Sam Shing 三聖"]
-        }, {
-        zone1data: [1, 10, 15, 20, 30, 240, 250, 260, 265, 920]
-      }
-      };
+      const stn = [
+        {"Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美樂", "Butterfly 蝴蝶", 
+        "Light Rail Depot 輕鐵車廠", "Lung Mun 龍門", "Siu Hei 兆禧",
+        "Tuen Mun Swimming Pool 屯門泳池", "Goodview Garden 豐景園", 
+        "Siu Lun 兆麟", "Sam Shing 三聖"}, 
+        {1, 10, 15, 20, 30, 240, 250, 260, 265, 920}
+      ];
       function zonechange() {
         alert(stn[1][1]);
         var precont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option> <option value=0>車站</option>";
