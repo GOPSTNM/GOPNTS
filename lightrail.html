@@ -36,9 +36,9 @@
         [1, 10, 15, 20, 30, 240, 250, 260, 265, 920]
       ];
       function zonechange() {
-        alert(stn[1][1]);
-        var precont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option> <option value=0>車站</option>";
-        document.getElementById("lightrailstop").innerHTML = precont;
+        alert(stn[document.getElementById("lightrailzone").value][0]);
+        var cont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option> <option value=0>車站</option>";
+        document.getElementById("lightrailstop").innerHTML = cont;
       }
     </script>
   </body>
