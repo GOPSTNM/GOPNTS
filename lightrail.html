@@ -45,7 +45,7 @@
         [0], 
       ];
       function zonechange() {
-        var cont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option>";
+        var cont = "<option selected='true' value=0 disabled='true'>Choose a stop 選擇車站</option>";
         for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
           var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2-1][i] + ">";
           var cont = cont + stn[document.getElementById("lightrailzone").value*2-2][i] + "</option>";
