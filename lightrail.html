@@ -20,7 +20,7 @@
       <option value=4>Zone 4 第4收費區</option>
       <option value=5>Zone 5 第5收費區</option>
       <option value=6>Zone 5A 第5A收費區</option>
-      <option disabled="true" value=7>[Not In Use]TML Interchange 屯馬綫轉車站</option>
+      <option disabled="true" value=7>[Not In Use] TML Interchange</option>
     </select>
     <br><br>
     <select id="lightrailstop" onchange="stopchange()">
@@ -51,8 +51,8 @@
         //alert(stn[document.getElementById("lightrailzone").value-1].length);
         var cont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option>";
         for (let i = 0; i < stn[document.getElementById("lightrailzone").value-1].length; i++) {
-          var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2-1][i] + ">";
-          var cont = cont + stn[document.getElementById("lightrailzone").value-1][i] + "</option>";
+          var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2][i] + ">";
+          var cont = cont + stn[document.getElementById("lightrailzone").value*2-1][i] + "</option>";
         }
         document.getElementById("lightrailstop").innerHTML = cont;
       }
