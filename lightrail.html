@@ -20,13 +20,13 @@
       <option value=4>Zone 4 第4收費區</option>
       <option value=5>Zone 5 第5收費區</option>
       <option value=6>Zone 5A 第5A收費區</option>
-      <option disabled="true" value=7>[Not In Use] TML Interchange</option>
     </select>
     <br><br>
     <select id="lightrailstop" onchange="stopchange()">
       <option disabled="true" value=0>Choose zone first 先選區域</option>
       <p id="lightrailstop"></p>
     </select>
+    <input type="button" onclick="lookfortrain ()" value="Find">
     <script>
       const stn = [
         ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美樂", "Butterfly 蝴蝶", 
