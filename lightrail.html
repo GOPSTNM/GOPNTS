@@ -19,7 +19,7 @@
       <option value=3>Zone 3 第3收費區</option>
       <option value=4>Zone 4 第4收費區</option>
       <option value=5>Zone 5 第5收費區</option>
-      <option value=6>Zone 5A \n第5A收費區</option>
+      <option value=6>Zone 5A 第5A收費區</option>
     </select>
     <select id="lightrailstop" onchange="stopchange()">
       <option disabled="true" value=0>Choose zone first 先選區域</option>
@@ -45,15 +45,15 @@
         [0], 
       ];
       function zonechange() {
-        //alert(stn[document.getElementById("lightrailzone").value-1][0]);
-        //alert(stn[document.getElementById("lightrailzone").value*2-1][0]);
-        //alert(stn[document.getElementById("lightrailzone").value-1].length);
         var cont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option>";
         for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
           var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2-1][i] + ">";
           var cont = cont + stn[document.getElementById("lightrailzone").value*2-2][i] + "</option>";
         }
         document.getElementById("lightrailstop").innerHTML = cont;
+      }
+      function lookfortrain () {
+        alert(document.getElementById("lightrailstop").value);
       }
     </script>
   </body>
