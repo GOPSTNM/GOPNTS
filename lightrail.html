@@ -50,7 +50,7 @@
         //alert(stn[document.getElementById("lightrailzone").value*2-1][0]);
         //alert(stn[document.getElementById("lightrailzone").value-1].length);
         var cont = "<option selected='true' disabled='true'>Choose a stop 選擇車站</option>";
-        for (let i = 0; i < stn[document.getElementById("lightrailzone").value-1].length; i++) {
+        for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
           var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2-1][i] + ">";
           var cont = cont + stn[document.getElementById("lightrailzone").value*2-2][i] + "</option>";
         }
