@@ -53,7 +53,8 @@
         document.getElementById("lightrailstop").innerHTML = cont;
       }
       function lookfortrain () {
-        alert(document.getElementById("lightrailstop").value);
+        var url = "https://rt.data.gov.hk/v1/transport/mtr/lrt/getSchedule?station_id=" + document.getElementById("lightrailstop").value;
+        alert(url);
       }
     </script>
   </body>
