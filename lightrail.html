@@ -59,7 +59,8 @@
             alert(""); 
           } else {
             alert(data["platform_list"][0]["route_list"][0]["dest_ch"]); 
-            upd (data["data"][lineinput + "-" + stninput]);
+            alert("Plat No" + data["platform_list"].length);
+            alert("Route No" + data["platform_list"][0]["route_list"].length);
           }
         });
       }
