@@ -61,6 +61,7 @@
           } else {
             var list = document.getElementById("lightrailstop");
             var stopname = list.options[list.selectedIndex].text;
+            alert(stopname);
             var table = "<table><tr><td colspan=4>" + stopname + "</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Mins</td></tr>";
             //alert(data["platform_list"][0]["route_list"][0]["dest_ch"]); 
             for (let i = 0; i < data["platform_list"].length; i++) {
