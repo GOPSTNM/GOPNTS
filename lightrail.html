@@ -12,7 +12,7 @@
     <div class="text1">
       [THIS FUNCTION NOT IN USE]
     </div>
-    <select id="lightrailzone" onchange="zonechange()">
+    <select id="lightrailzone">
       <option selected="true" disabled="true" value=0>Choose a zone 選擇收費區</option>
       <option value=1>Zone 1 第1收費區</option>
       <option value=2>Zone 2 第2收費區</option>
@@ -25,6 +25,7 @@
       <option disabled="true" value=0>Choose zone first 先選區域</option>
     </select>
     <input type="button" onclick="lookfortrain ()" value="Find">
+    <p id="data"></p>
     <script>
       const stn = [
         ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美樂", "Butterfly 蝴蝶", 
@@ -55,11 +56,18 @@
         var url = "https://rt.data.gov.hk/v1/transport/mtr/lrt/getSchedule?station_id=" + document.getElementById("lightrailstop").value;
         alert(url);
         fetch(url).then(response => response.json()).then(function(data){
-          if (data["status"] == 0) {
-            alert(""); 
+          if (data["platform_list"].length == 0) {
+            alert("No Data."); 
           } else {
-            alert(data["platform_list"][0]["route_list"][0]["dest_ch"]); 
-            alert(data["platform_list"].length);
+            var list = document.getElementById("lightrailstop");
+            var stopname = list.options[list.selectedIndex].text;
+            var table = "<table><tr><td colspan=4>" + stopname + "</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Mins</td></tr>";
+            //alert(data["platform_list"][0]["route_list"][0]["dest_ch"]); 
+            for (let i = 0; i < data["platform_list"].length; i++) {
+              for (let i = 0; i < data["platform_list"][i].length; i++) {
+              alert(i);
+              }
+            }
           }
         });
       }
