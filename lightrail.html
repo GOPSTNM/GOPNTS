@@ -76,7 +76,7 @@
                 "</th></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var time = parseInt(data["platform_list"][plat]["route_list"][i]["time_en"]);
-                if (time == NaN){
+                if (isNaN(time) == true){
                   alert("hi");
                   var time = "-";
                 }
