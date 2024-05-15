@@ -69,17 +69,18 @@
           if (data["status"] == 0) {
             alert("No Data."); 
           } else {
-            var table = "<table><tr><td>Rte</td><td>Dest</td><td>Car</td><td>Time</td></tr>";
+            var table = "<table><tr><td>Rte</td><td>Dest</td><td>Car</td><td>Min</td></tr>";
             for (let i = 0; i < data["platform_list"].length; i++) {
               let plat = i;
               var table = table + "<tr><th colspan=4>Platform " + data["platform_list"][plat]["platform_id"] + 
                 "</th></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
+                var time = data["platform_list"][plat]["route_list"][i]["time_en"].substr(0, 2);
                 var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + "</td><td>" + 
                   data["platform_list"][plat]["route_list"][i]["dest_en"] + " " + 
                   data["platform_list"][plat]["route_list"][i]["dest_ch"] + "</td><td>" + 
                   data["platform_list"][plat]["route_list"][i]["train_length"] + "</td><td>" + 
-                  data["platform_list"][plat]["route_list"][i]["time_en"].substr(0, 2) + "</td></tr>";
+                  time + "</td></tr>";
               }
             }
             document.getElementById("data").innerHTML = table + "</table>";
