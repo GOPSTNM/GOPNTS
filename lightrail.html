@@ -76,7 +76,7 @@
                 "</th></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var time = data["platform_list"][plat]["route_list"][i]["time_en"].substr(0, 2);
-                if (typeof time != "number"){
+                if (typeof time.substr(0,1) != "number"){
                   alert(typeof time);
                   var time = "-";
                 }
