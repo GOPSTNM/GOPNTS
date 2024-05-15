@@ -61,12 +61,13 @@
             var table = "<table><tr><td colspan=4>Destination</td></tr>";
             for (let i = 0; i < data["platform_list"].length; i++) {
               let plat = i;
+              var table = table + "<tr><td colspan=4>" + data["platform_list"][plat]["platform_id"] + "</td></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + 
                   "</td><td>" + data["platform_list"][plat]["route_list"][i]["dest_ch"] + " " + 
                   data["platform_list"][plat]["route_list"][i]["dest_en"] + "</td><td>" + 
                   data["platform_list"][plat]["route_list"][i]["train_length"] + "</td><td>" + 
-                  data["platform_list"][plat]["route_list"][i]["time_ch"] + "</td></tr>";
+                  data["platform_list"][plat]["route_list"][i]["time_ch"] + " min</td></tr>";
               }
             }
             document.getElementById("data").innerHTML = table + "</table>";
