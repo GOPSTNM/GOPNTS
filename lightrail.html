@@ -69,10 +69,10 @@
           if (data["status"] == 0) {
             alert("No Data."); 
           } else {
-            var table = "<table><tr><th>Rte</th><th>Dest</th><th>Car</th><th>Time</th></tr>";
+            var table = "<table><tr><td>Rte</td><td>Dest</td><td>Car</td><td>Time</td></tr>";
             for (let i = 0; i < data["platform_list"].length; i++) {
               let plat = i;
-              var table = table + "<tr><th colspan=4>Platform" + data["platform_list"][plat]["platform_id"] + 
+              var table = table + "<tr><th colspan=4>Platform " + data["platform_list"][plat]["platform_id"] + 
                 "</th></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + "</td><td>" + 
