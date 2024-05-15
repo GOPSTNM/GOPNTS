@@ -63,7 +63,9 @@
             for (let i = 0; i < data["platform_list"].length; i++) {
               let plat = i;
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
-                alert(plat + "," + i);
+                //alert(plat + "," + i);
+                var table = table + "<table><tr><td>" + data["platform_list"][0]["route_list"][0]["route_no"] + 
+                  "</td></tr>";
               }
             }
             document.getElementById("data").innerHTML = table + "</table>";
