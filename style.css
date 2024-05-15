@@ -23,6 +23,7 @@ th {
   text-align: left;
   background-color: DarkOrange;
   color: white;
+  font-weight: normal;
 }
 input[type=text], select {
   height: 20px;
