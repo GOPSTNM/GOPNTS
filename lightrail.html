@@ -58,7 +58,7 @@
           if (data["status"] == 0) {
             alert("No Data."); 
           } else {
-            var table = "<table><tr><td colspan=5>Destination</td></tr>";
+            var table = "<table><tr><td>Plat</td><td>Route</td><td>Destination</td><td>Car</td><td>Time</td></tr>";
             for (let i = 0; i < data["platform_list"].length; i++) {
               let plat = i;
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
