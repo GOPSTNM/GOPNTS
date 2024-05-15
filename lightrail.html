@@ -77,7 +77,7 @@
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var time = data["platform_list"][plat]["route_list"][i]["time_en"].substr(0, 2);
                 if (typeof time.substr(0,1) != "number"){
-                  alert(typeof time);
+                  alert(time.substr(0,1));
                   var time = "-";
                 }
                 var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + "</td><td>" + 
