@@ -69,10 +69,10 @@
           if (data["status"] == 0) {
             alert("No Data."); 
           } else {
-            var table = "<table><tr><td>Route</td><td>Destination</td><td>Car</td><td>Min</td></tr></table><table><tr><td>Route</td><td>Destination</td><td>Car</td><td>Min</td></tr>";
+            var table = "<table><tr><td>Route</td><td>Destination</td><td>Car</td><td>Min</td></tr>";
             for (let i = 0; i < data["platform_list"].length; i++) {
               let plat = i;
-              var table = table + "<tr><th colspan=4>Platform " + data["platform_list"][plat]["platform_id"] + 
+              var table = table + "</table><table><tr><th colspan=4>Platform " + data["platform_list"][plat]["platform_id"] + 
                 "</th></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var time = parseInt(data["platform_list"][plat]["route_list"][i]["time_en"]);
