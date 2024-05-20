@@ -21,9 +21,7 @@ td, th{
 }
 th {
   text-align: left;
-  /*background-color: DarkOrange;*/
   color: DarkOrange;
-  font-weight: normal;
 }
 input[type=text], select {
   height: 20px;
