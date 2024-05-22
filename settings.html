@@ -14,5 +14,21 @@
       This is settings.</br></br>
       Thank you for your support.
     </div>
+    <h1>Local Storage Program</h1><br/>
+    Data: <input type="text" id="input">
+    <button onclick="C()">Update Saved Data</button>
+    <br/><br/><br/>
+    <button onclick="Show()">Show Saved Data</button>
+    <p id="show">
   </body>
+  <script>
+    function C () {
+      const x = document.getElementById("input").value;
+      alert("Data Saved. Data is " + x);
+      localStorage.setItem("CT", x);
+    }
+    function Show () {
+      document.getElementById("show").innerHTML = localStorage.getItem("CT");
+    }
+  </script>
 </html>
