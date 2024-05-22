@@ -19,16 +19,16 @@
     <button onclick="C()">Update Saved Data</button>
     <br/><br/><br/>
     <button onclick="Show()">Show Saved Data</button>
-    <p id="show">
-  </body>
-  <script>
-    function C () {
+    <p id="show"></p>
+    <script>
+     function C () {
       const x = document.getElementById("input").value;
       alert("Data Saved. Data is " + x);
-      localStorage.setItem("CT", x);
-    }
+       localStorage.setItem("CT", x);
+     }
     function Show () {
-      document.getElementById("show").innerHTML = localStorage.getItem("CT");
-    }
-  </script>
+       document.getElementById("show").innerHTML = localStorage.getItem("CT");
+     }
+    </script>
+  </body>
 </html>
