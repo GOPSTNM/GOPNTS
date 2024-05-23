@@ -20,17 +20,17 @@
     <input type="text" id="input">
     <button onclick="C()">Update Saved Data</button>
     <br/><br/><br/>
-    <button onclick="Show()">Show Saved Data</button>
+    <input type=button onclick="Show()" value="Show Saved Data">
     <p id="show"></p>
     <script>
-     function C () {
+    function C () {
       const x = document.getElementById("input").value;
       alert("Data Saved. Data is " + x);
-       localStorage.setItem("CT", x);
-     }
+      localStorage.setItem("CT", x);
+    }
     function Show () {
-       document.getElementById("show").innerHTML = localStorage.getItem("CT");
-     }
+      document.getElementById("show").innerHTML = localStorage.getItem("CT");
+    }
     </script>
   </body>
 </html>
