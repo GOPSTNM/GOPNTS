@@ -10,12 +10,12 @@
   <body>
     <script id="replace_with_navbar" src="nav.js"></script>
     <div class="text1">
-      Settings</br></br>
+      Settings</br>
       Favorite Station: 
+      <input type="text" id="input">
+      <input type=button onclick="C()" value="Update Saved Data">
+      <input type=button onclick="Show()" value="Show Saved Data">
     </div>
-    <input type="text" id="input">
-    <input type=button onclick="C()" value="Update Saved Data">
-    <input type=button onclick="Show()" value="Show Saved Data">
     <p id="show"></p>
     <select id="lightrailzone" onchange="zonechange()">
       <option selected="true" disabled="true" value=0>Choose a zone 選擇收費區</option>
