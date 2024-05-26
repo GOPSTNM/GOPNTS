@@ -64,9 +64,9 @@
         var cont = "<option selected='true' value=0 disabled='true'>Choose a stop</option>";
         if (document.getElementById("lightrailzone").value==8) {
           for (let i = 0; i < 6; i++) {
-            var tempzone = ((i+1)*2)-1;
+            var tempzone = i+1;
             alert(tempzone);
-            for (let i = 0; i < stn[tempzone].length; i++) {
+            for (let i = 0; i < stn[(tempzone)*2-1].length; i++) {
               var cont = cont + getname(tempzone, i);
             }
           }
