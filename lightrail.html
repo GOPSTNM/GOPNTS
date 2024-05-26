@@ -65,7 +65,8 @@
         if (document.getElementById("lightrailzone").value==8) {
           for (let i = 0; i < 6; i++) {
             var tempzone = i+1;
-            var cont = cont + "<optgroup label='Zone" + tempzone + "'>";
+            if (tempzone == 6) {var cont = cont + "<optgroup label='Zone 5A'>";
+            }else{var cont = cont + "<optgroup label='Zone " + tempzone + "'>";}
             for (let i = 0; i < stn[(tempzone)*2-1].length; i++) {
               var cont = cont + getname(tempzone, i);
             }
