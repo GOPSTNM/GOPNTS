@@ -63,10 +63,16 @@
       function zonechange() {
         var cont = "<option selected='true' value=0 disabled='true'>Choose a stop</option>";
         if (document.getElementById("lightrailzone").value==8) {
-          alert("workinh on this.");
-        }else{
+          alert("working on this.");
           for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
-          var cont = cont + getname(document.getElementById("lightrailzone").value, i);
+            var cont = cont + getname(document.getElementById("lightrailzone").value, i);
+          }
+        }else{
+          for (let i = 0; i < 6; i++) {
+            var tempzone = i;
+            for (let i = 0; i < stn[i*2-1].length; i++) {
+              var cont = cont + getname(tempzone, i);
+            }       
           }
         }
         document.getElementById("lightrailstop").innerHTML = cont;
