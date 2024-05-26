@@ -66,11 +66,13 @@
           alert("workinh on this.");
         }else{
           for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
-          var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2-1][i] + ">";
-          var cont = cont + stn[document.getElementById("lightrailzone").value*2-2][i] + "</option>";
+          var cont = cont + getname(document.getElementById("lightrailzone").value, i);
           }
         }
         document.getElementById("lightrailstop").innerHTML = cont;
+      }
+      function getname(zone, i) {
+        return "<option value=" + stn[zone*2-1][i] + ">" + stn[zone*2-2][i] + "</option>";
       }
       function lookfortrain () {
         var url = "https://rt.data.gov.hk/v1/transport/mtr/lrt/getSchedule?station_id=" + document.getElementById("lightrailstop").value;
