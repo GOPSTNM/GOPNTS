@@ -15,6 +15,7 @@
     </div>
     <select id="lightrailzone" onchange="zonechange()">
       <option selected="true" disabled="true" value=0>Choose a zone 選擇收費區</option>
+      <option value=8>Not Sure Which Zone</option>
       <option value=1>Zone 1 第1收費區</option>
       <option value=2>Zone 2 第2收費區</option>
       <option value=3>Zone 3 第3收費區</option>
@@ -57,9 +58,13 @@
       ];
       function zonechange() {
         var cont = "<option selected='true' value=0 disabled='true'>Choose a stop 選擇車站</option>";
-        for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
+        if (document.getElementById("lightrailzone").value==8) {
+          alert("workinh on this.");
+        }else{
+          for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-2].length; i++) {
           var cont = cont + "<option value=" + stn[document.getElementById("lightrailzone").value*2-1][i] + ">";
           var cont = cont + stn[document.getElementById("lightrailzone").value*2-2][i] + "</option>";
+          }
         }
         document.getElementById("lightrailstop").innerHTML = cont;
       }
