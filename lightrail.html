@@ -65,7 +65,7 @@
         if (document.getElementById("lightrailzone").value==8) {
           for (let i = 0; i < 6; i++) {
             var tempzone = i;
-            for (let i = 0; i < stn[tempzone*2].length; i++) {
+            for (let i = 0; i < stn[(tempzone+1)*2-1].length; i++) {
               var cont = cont + getname(tempzone, i);
             }
           }
