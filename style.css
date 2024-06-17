@@ -39,7 +39,7 @@ input[type=text], select {
 select {
   height: 44px;
 }
-input[type=button]{
+input[type=button], button{
   width: 300px;
   background-color: DarkOrange;
   padding: 7px 5px 8px;
