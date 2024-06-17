@@ -12,5 +12,16 @@
     <div class="text1">
       Document Viewer 1.0
     </div>
+    <button onclick="View()">View Document</button>
+    <p id="DOC"></p>
+    <script>
+      function View() {
+        let name = prompt("Please Enter Document Name");
+        if (person != null) {
+          document.getElementById("demo").innerHTML = 
+            "Hello " + person + "! How are you today?";
+        }
+      }
+    </script>
   </body>
 </html>
