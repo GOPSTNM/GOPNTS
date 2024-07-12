@@ -11,7 +11,6 @@
     <script id="replace_with_navbar" src="nav.js"></script>
     <div class="text1">
       MTR Next Train 1.0 Multi-Station Mode</br>
-      Choose Line & Station</br>
     </div>
     <select id="lineinput">
       <option selected="true" disabled="true" value="FAV">Choose A Line</option>
@@ -29,8 +28,6 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
-      var specialmessage = "";
-      var specialmessage = "Kwun Tong Line will close between Prince Edward and Ho Man Tin on 28 July due to planned engineering work.</br>";
       if (location.search.split('line=')[1] !== undefined) {
         document.getElementById("lineinput").value = location.search.split('line=')[1].substring(0, 3);
       }
