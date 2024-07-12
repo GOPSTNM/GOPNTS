@@ -25,9 +25,12 @@
       <option value="TCL">Tung Chung Line</option>
     </select>
     <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
-    <input type="button" onclick="lookfortrain ()" value="Add Station">
+    <input type="button" onclick="add ()" value="Add Station">
     <p id="data"></p>
     <script>
+      function add () {
+        alert("hi");
+      };
       const stn = {
         ADM: "Admiralty",
         TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
@@ -112,7 +115,7 @@
         let enter = document.getElementById("stninput");
         enter.value = enter.value.toUpperCase();
         if (event.key === 'Enter') {
-          lookfortrain();
+          add();
         }
       }
     </script>
