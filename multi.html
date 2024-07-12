@@ -30,6 +30,7 @@
     <script>
       function add () {
         alert("hi");
+        document.getElementById("data").innerHTML = gr();
       };
       const stn = {
         ADM: "Admiralty",
@@ -46,33 +47,23 @@
         MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
         DIH: "Diamond Hill"
       };
-      function lookfortrain () {
-        var stninput = document.getElementById("stninput").value;
-        var lineinput = document.getElementById("lineinput").value;
-        if (lineinput == "FAV") {
-          var lineinput = "TML";
-        }
-        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
+      function gr (line, stn) {
+        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + line + "&sta=" + stn;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              alert("No Data. Because of wrong station code.");
+              return "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
             } else {
-              alert("No Data. Because of an incident on the line.");
+              return "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
             }
           } else {
-          upd (data["data"][lineinput + "-" + stninput]);
+          upd (data["data"][line + "-" + stn]);
           }
         });
       }
       function upd(data) {
         var dir = "UP";
-        if (location.search.split('m=')[1] !== undefined) {
-          var mes = location.search.split('m=')[1].replace(/%20/g, " ");
-          var testtable = "<table><tr><td colspan=4>" + mes + "</br>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
-        } else {
-          var testtable = "<table><tr><td colspan=4>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
-        }
+        var testtable = "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
         var table = testtable;
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
@@ -105,10 +96,11 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          alert("No Data. Because there is no train data from the data source.");
+          return "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
         } else {
           var table = table + "</table>";
-          document.getElementById("data").innerHTML = table;
+          //document.getElementById("data").innerHTML = table;
+          return table;
         }
       }
       function key() {
