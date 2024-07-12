@@ -57,11 +57,11 @@
               return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
             }
           } else {
-          upd (data["data"][iline + "-" + istn]);
+          upd (data["data"][iline + "-" + istn], iline, istn);
           }
         });
       }
-      function upd(data) {
+      function upd(data, iline, istn) {
         var dir = "UP";
         var testtable = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
         var table = testtable;
