@@ -25,13 +25,13 @@
       <option value="TCL">Tung Chung Line</option>
     </select>
     <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
-    <input type="button" onclick="add ()" value="Add Station">
+    <input type="button" onclick="add ();" value="Add Station">
+    <input type="button" onclick="const csed = [];updfirst();" value="Remove All">
     <p id="data"></p>
     <script>
       function add () {
-        gr(document.getElementById("lineinput").value, document.getElementById("stninput").value);
-        alert(datareturn);
-        document.getElementById("data").innerHTML = datareturn;
+        const csed = ["TML", "LOP", "EAL", "HUH"];
+        updfirst();
       };
       const stn = {
         ADM: "Admiralty",
@@ -48,19 +48,23 @@
         MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
         DIH: "Diamond Hill"
       };
-      function gr (iline, istn) {
-        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + iline + "&sta=" + istn;
+      function updfirst () {
+        var tbsfinal = "";
+        alert(csed.length);
+        for (let i = 0; i < csed.length/2; i++) {
+        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + csed[i] + "&sta=" + csed[i+1];
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              var datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
+              var tbsfinal = tbsfinal + "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
             } else {
-              var datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
+              var tbsfinal = tbsfinal + "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
             }
           } else {
-          upd (data["data"][iline + "-" + istn], iline, istn);
+          upd (data["data"][csed[i] + "-" + csed[i+1]], csed[i], csed[i+1]);
           }
         });
+        }
       }
       function upd(data, iline, istn) {
         var dir = "UP";
@@ -97,11 +101,11 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          var datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
+          var tbsfinal = tbsfinal + "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
         } else {
-          var datareturn = table + "</table>";
-          alert(datareturn);
+          var tbsfinal = tbsfinal + table + "</table>";
         }
+        alert(tbsfinal);
       }
       function key() {
         let enter = document.getElementById("stninput");
