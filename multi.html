@@ -29,8 +29,8 @@
     <p id="data"></p>
     <script>
       function add () {
-        alert("hi");
         let test = gr(document.getElementById("lineinput").value, document.getElementById("stninput").value);
+        alert(test);
         document.getElementById("data").innerHTML = test;
       };
       const stn = {
@@ -101,7 +101,7 @@
         } else {
           //var table = table + "</table>";
           //document.getElementById("data").innerHTML = table;
-          alert (table + "</table>");
+          //alert (table + "</table>");
           return (table + "</table>");
         }
       }
