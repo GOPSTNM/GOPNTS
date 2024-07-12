@@ -28,13 +28,6 @@
     <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
-      if (location.search.split('line=')[1] !== undefined) {
-        document.getElementById("lineinput").value = location.search.split('line=')[1].substring(0, 3);
-      }
-      if (location.search.split('stn=')[1] !== undefined) {
-        document.getElementById("stninput").value = location.search.split('stn=')[1].substring(0, 3);
-        lookfortrain();
-      }
       const stn = {
         ADM: "Admiralty",
         TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
