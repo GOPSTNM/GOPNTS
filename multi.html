@@ -29,9 +29,8 @@
     <p id="data"></p>
     <script>
       function add () {
-        let test = gr(document.getElementById("lineinput").value, document.getElementById("stninput").value);
-        alert(test);
-        document.getElementById("data").innerHTML = test;
+        gr(document.getElementById("lineinput").value, document.getElementById("stninput").value);
+        document.getElementById("data").innerHTML = datareturn;
       };
       const stn = {
         ADM: "Admiralty",
@@ -53,9 +52,9 @@
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
+              let datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
             } else {
-              return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
+              let datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
             }
           } else {
           upd (data["data"][iline + "-" + istn], iline, istn);
@@ -97,12 +96,9 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
+          let datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
         } else {
-          //var table = table + "</table>";
-          //document.getElementById("data").innerHTML = table;
-          //alert (table + "</table>");
-          return (table + "</table>");
+          let datareturn = table + "</table>";
         }
       }
       function key() {
