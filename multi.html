@@ -53,9 +53,9 @@
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              let datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
+              var datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
             } else {
-              let datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
+              var datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
             }
           } else {
           upd (data["data"][iline + "-" + istn], iline, istn);
@@ -97,9 +97,9 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          let datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
+          var datareturn = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
         } else {
-          let datareturn = table + "</table>";
+          var datareturn = table + "</table>";
         }
       }
       function key() {
