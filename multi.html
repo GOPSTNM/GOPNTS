@@ -47,23 +47,23 @@
         MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
         DIH: "Diamond Hill"
       };
-      function gr (line, stn) {
-        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + line + "&sta=" + stn;
+      function gr (iline, istn) {
+        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + iline + "&sta=" + istn;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              return "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
+              return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr></table>";
             } else {
-              return "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
+              return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr></table>";
             }
           } else {
-          upd (data["data"][line + "-" + stn]);
+          upd (data["data"][iline + "-" + istn]);
           }
         });
       }
       function upd(data) {
         var dir = "UP";
-        var testtable = "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
+        var testtable = "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
         var table = testtable;
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
@@ -96,7 +96,7 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          return "<table><tr><td colspan=4>" + stn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
+          return "<table><tr><td colspan=4>" + istn + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr></table>";
         } else {
           //var table = table + "</table>";
           //document.getElementById("data").innerHTML = table;
