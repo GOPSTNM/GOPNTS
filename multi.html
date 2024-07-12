@@ -30,7 +30,7 @@
     <script>
       function add () {
         alert("hi");
-        alert(gr(document.getElementById("lineinput").value, document.getElementById("stninput").value));
+        document.getElementById("data").innerHTML = gr(document.getElementById("lineinput").value, document.getElementById("stninput").value);
       };
       const stn = {
         ADM: "Admiralty",
