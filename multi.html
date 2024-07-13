@@ -42,9 +42,6 @@
         SHT: "Sha Tin", FOT: "Fo Tan", MKK: "Mong Kok East", SHS: "Sheung Shui", 
         MEF: "Mei Foo", DIH: "Diamond Hill"
       };
-      function lookfortrain() {
-        document.getElementById("data_to_show").innerHTML = proc_ret(document.getElementById("stninput").value, document.getElementById("lineinput").value);
-      }
       function proc_ret(stninput, lineinput) {
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         alert(url);
@@ -60,6 +57,9 @@
           }
           return ret_elem;
         });
+      }
+      function lookfortrain() {
+        document.getElementById("data_to_show").innerHTML = proc_ret(document.getElementById("stninput").value, document.getElementById("lineinput").value);
       }
     </script>
   </body>
