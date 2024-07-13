@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .navbar a.multi {
+        background-color: DarkOrange;
+      }
+    </style>
+  </head>
+  <body>
+    <script id="replace_with_navbar" src="nav.js"></script>
+    <div class="text1">
+      MTR Next Train 1.0 Multi-Station Mode</br>
+    </div>
+    <select id="lineinput">
+      <option selected="true" disabled="true" value="TML">Choose A Line</option>
+      <option value="TML">Tuen Ma Line</option>
+      <option value="TWL">Tsuen Wan Line</option>
+      <option value="TKL">Tseung Kwan O Line</option>
+      <option value="SIL">South Island Line</option>
+      <option value="KTL">Kwun Tong Line</option>
+      <option value="ISL">Island Line</option>
+      <option value="EAL">East Rail Line</option>
+      <option value="AEL">Airport Express</option>
+      <option value="TCL">Tung Chung Line</option>
+    </select>
+    <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
+    <input type="button" onclick="lookfortrain ()" value="Find">
+    <p id="data"></p>
+    <script>
+      const stn = {
+        ADM: "Admiralty",
+        TUM: "Tuen Mun", WKS: "Wu Kai Sha", 
+        LOW: "Lo Wu", LMC: "Lok Ma Chau", 
+        SOH: "South Horizons", TIK: "Tiu Keng Leng", 
+        WHA: "Whampoa", HOK: "Hong Kong", AWE : "AsiaWorld Expo", TUC: "Tung Chung", 
+        NOP: "North Point", LHP: "LOHAS Park", POA: "Po Lam", 
+        CEN: "Central", TSW: "Tsuen Wan", KET: "Kennedy Town", CHW: "Chai Wan", 
+      };
+      const specialstn = {
+        PRE: "Prince Edward", TSY: "Tsing Yi", HOM: "Ho Man Tin", 
+        TAP: "Tai Po Market", SHT: "Sha Tin", FOT: "Fo Tan", 
+        MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
+        DIH: "Diamond Hill"
+      };
+      function lookfortrain () {
+        var stninput = document.getElementById("stninput").value;
+        var lineinput = document.getElementById("lineinput").value;
+        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
+        fetch(url).then(response => response.json()).then(function(data){
+          if (data["status"] == 0) {
+            if (data["message"] == "Data is not available (0).") {
+              alert("No Data. Because of wrong station code.");
+            } else {
+              alert("No Data. Because of an incident on the line.");
+            }
+          } else {
+          upd (data["data"][lineinput + "-" + stninput]);
+          }
+        });
+      }
+      function upd(data) {
+        var dir = "UP";
+        var testtable = "<table><tr><td colspan=4>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
+        var table = testtable;
+        for (let i = 0; i < 2; i++) {
+          for (let i = 0; i < 4; i++) {
+            if (data[dir] !== undefined && data[dir][i] !== undefined){
+              var table = table + "<tr>";
+              let dest = data[dir][i]["dest"];
+              if (data[dir][i]["route"] == "RAC") {
+                if (stn[dest] !== undefined) {
+                  var table = table + "<td><div class='blink'>" + stn[dest] + " Via Racecourse</div></td>";
+                } else if (specialstn[dest] !== undefined) {
+                  var table = table + "<td><div class='blink'>" + specialstn[dest] + " Via Racecourse</div></td>";
+                } else {
+                  var table = table + "<td><div class='blink'>" + dest + " Via Racecourse</div></td>";
+                }
+              } else {
+                if (stn[dest] !== undefined) {
+                  var table = table + "<td>" + stn[dest] + "</td>";
+                } else if (specialstn[dest] !== undefined) {
+                  var table = table + "<td><div class='blink'>" + specialstn[dest] + "</div></td>";
+                } else {
+                  var table = table + "<td>" + dest + "</td>";
+                }
+              }
+              var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
+              var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
+              var table = table + "<td>" + Math.ceil((new Date(data[dir][i]["time"]) - new Date())/60000) + "</td>";
+              var table = table + "</tr>";
+            }
+          }
+          var dir = "DOWN";
+        }
+        if (table == testtable) {
+          alert("No Data. Because there is no train data from the data source.");
+        } else {
+          var table = table + "</table>";
+          document.getElementById("data").innerHTML = table;
+        }
+      }
+      function key() {
+        let enter = document.getElementById("stninput");
+        enter.value = enter.value.toUpperCase();
+        if (event.key === 'Enter') {
+          lookfortrain();
+        }
+      }
+    </script>
+  </body>
+</html>
