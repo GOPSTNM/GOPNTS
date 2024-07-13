@@ -31,8 +31,8 @@
       function addcsed(){
       const table = "";
       lookfortrain ('TML', 'LOP');
-      alert(lookfortrain ('TML', 'LOP'));
-      //document.getElementById("data").innerHTML = table;
+        alert(lookfortrain ('TML', 'LOP'));
+        document.getElementById("data").innerHTML = lookfortrain ('TML', 'LOP');
       }
       const stn = {
         ADM: "Admiralty",
@@ -64,7 +64,7 @@
             }
           } else {
           const temp = upd(data["data"][lineinput + "-" + stninput], lineinput, stninput);
-            //alert(temp);
+            alert(temp);
             return temp;
           }
         });
