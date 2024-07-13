@@ -50,9 +50,13 @@
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              alert("No Data. Because of wrong station code.");
+              var table = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
+          " Station</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr>";
+              document.getElementById("data").innerHTML = table;
             } else {
-              alert("No Data. Because of an incident on the line.");
+              var table = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
+          " Station</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr>";
+              document.getElementById("data").innerHTML = table;
             }
           } else {
           upd (data["data"][lineinput + "-" + stninput]);
@@ -63,7 +67,7 @@
         var stninput = document.getElementById("stninput").value;
         var lineinput = document.getElementById("lineinput").value;
         var dir = "UP";
-        var testtable = "<table><tr><td colspan=4>" + stninput + lineinput + 
+        var testtable = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
           " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
         var table = testtable;
         for (let i = 0; i < 2; i++) {
@@ -97,7 +101,9 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          alert("No Data. Because there is no train data from the data source.");
+          var table = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
+          " Station</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr>";
+              document.getElementById("data").innerHTML = table;
         } else {
           var table = table + "</table>";
           document.getElementById("data").innerHTML = table;
