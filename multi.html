@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="style.css">
     <style>
-      .navbar a.multi {
+      .navbar a.nexttrain {
         background-color: DarkOrange;
       }
     </style>
@@ -10,7 +10,8 @@
   <body>
     <script id="replace_with_navbar" src="nav.js"></script>
     <div class="text1">
-      MTR Next Train 1.0 Multi-Station Mode</br>
+      MTR Next Train 1.0</br>
+      Choose Line & Station</br>
     </div>
     <select id="lineinput">
       <option selected="true" disabled="true" value="TML">Choose A Line</option>
@@ -25,14 +26,17 @@
       <option value="TCL">Tung Chung Line</option>
     </select>
     <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
-    <input type="button" onclick="addcsed()" value="Find">
+    <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data"></p>
     <script>
-      function addcsed(){
-      const table = "";
-      lookfortrain ('TML', 'LOP');
-        alert(lookfortrain ('TML', 'LOP'));
-        document.getElementById("data").innerHTML = lookfortrain ('TML', 'LOP');
+      var specialmessage = "";
+      //var specialmessage = "Kwun Tong Line will close between Prince Edward and Ho Man Tin on 28 July due to planned engineering work.</br>";
+      if (location.search.split('line=')[1] !== undefined) {
+        document.getElementById("lineinput").value = location.search.split('line=')[1].substring(0, 3);
+      }
+      if (location.search.split('stn=')[1] !== undefined) {
+        document.getElementById("stninput").value = location.search.split('stn=')[1].substring(0, 3);
+        lookfortrain();
       }
       const stn = {
         ADM: "Admiralty",
@@ -49,37 +53,35 @@
         MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
         DIH: "Diamond Hill"
       };
-      function lookfortrain (lineinput, stninput) {
+      function lookfortrain () {
+        var stninput = document.getElementById("stninput").value;
+        var lineinput = document.getElementById("lineinput").value;
+        if (lineinput == "FAV") {
+          var lineinput = "TML";
+        }
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              var table = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
-          " Station</td></tr><tr><td colspan=4>No Data. Because of wrong station code.</td></tr>";
-              document.getElementById("data").innerHTML = table;
+              alert("No Data. Because of wrong station code.");
             } else {
-              var table = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
-          " Station</td></tr><tr><td colspan=4>No Data. Because of an incident on the line.</td></tr>";
-              document.getElementById("data").innerHTML = table;
+              alert("No Data. Because of an incident on the line.");
             }
           } else {
-          const temp = upd(data["data"][lineinput + "-" + stninput], lineinput, stninput);
-            alert(temp);
-            return temp;
-          }
-        });
-      }
-      function upd(data, lineinput, stninput) {
         var dir = "UP";
-        var testtable = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
-          " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
+        if (location.search.split('m=')[1] !== undefined) {
+          var mes = location.search.split('m=')[1].replace(/%20/g, " ");
+          var testtable = "<table><tr><td colspan=4>" + mes + "</br>" + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
+        } else {
+          var testtable = "<table><tr><td colspan=4>" + specialmessage + document.getElementById("stninput").value + " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
+        }
         var table = testtable;
         for (let i = 0; i < 2; i++) {
           for (let i = 0; i < 4; i++) {
-            if (data[dir] !== undefined && data[dir][i] !== undefined){
+            if (data["data"][lineinput + "-" + stninput][dir] !== undefined && data["data"][lineinput + "-" + stninput][dir][i] !== undefined){
               var table = table + "<tr>";
-              let dest = data[dir][i]["dest"];
-              if (data[dir][i]["route"] == "RAC") {
+              let dest = data["data"][lineinput + "-" + stninput][dir][i]["dest"];
+              if (data["data"][lineinput + "-" + stninput][dir][i]["route"] == "RAC") {
                 if (stn[dest] !== undefined) {
                   var table = table + "<td><div class='blink'>" + stn[dest] + " Via Racecourse</div></td>";
                 } else if (specialstn[dest] !== undefined) {
@@ -96,8 +98,8 @@
                   var table = table + "<td>" + dest + "</td>";
                 }
               }
-              var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
-              var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
+              var table = table + "<td>" + data["data"][lineinput + "-" + stninput][dir][i]["plat"] + "</td>";
+              var table = table + "<td>" + data["data"][lineinput + "-" + stninput][dir][i]["time"].substring(11,16) + "</td>";
               var table = table + "<td>" + Math.ceil((new Date(data[dir][i]["time"]) - new Date())/60000) + "</td>";
               var table = table + "</tr>";
             }
@@ -105,14 +107,13 @@
           var dir = "DOWN";
         }
         if (table == testtable) {
-          var table = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
-          " Station</td></tr><tr><td colspan=4>No Data. Because there is no train data from the data source.</td></tr>";
-              document.getElementById("data").innerHTML = table;
+          alert("No Data. Because there is no train data from the data source.");
         } else {
           var table = table + "</table>";
-          return table;
           document.getElementById("data").innerHTML = table;
         }
+          }
+        });
       }
       function key() {
         let enter = document.getElementById("stninput");
