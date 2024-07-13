@@ -105,7 +105,7 @@
               }
               var table = table + "<td>" + data[dir][i]["plat"] + "</td>";
               var table = table + "<td>" + data[dir][i]["time"].substring(11,16) + "</td>";
-              var table = table + "<td>" + Math.ceil((new Date(data[dir][i]["time"]) - new Date())/60000) + "</td>";
+              var table = table + "<td><div style='animation: mymove 1s infinite;'>" + Math.ceil((new Date(data[dir][i]["time"]) - new Date())/60000) + "</div></td>";
               var table = table + "</tr>";
             }
           }
