@@ -51,12 +51,12 @@
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
             if (data["message"] == "Data is not available (0).") {
-              var ret_elem = "<table><tr><td>" + lineinput + " " + stninput + " Station</td></tr><tr><td>No Data. Because of wrong station code.</td></tr></table>;
+              var ret_elem = "<table><tr><td>" + lineinput + " " + stninput + " Station</td></tr><tr><td>No Data. Because of wrong station code.</td></tr></table>";
             } else {
-              var ret_elem = "<table><tr><td>" + lineinput + " " + stninput + " Station</td></tr><tr><td>No Data. Because of an incident on the line.</td></tr></table>;
+              var ret_elem = "<table><tr><td>" + lineinput + " " + stninput + " Station</td></tr><tr><td>No Data. Because of an incident on the line.</td></tr></table>";
             }
           }else{
-          var ret_elem = "<table><tr><td>" + lineinput + " " + stninput + " Station</td></tr><tr><td>Good</td></tr></table>;
+          var ret_elem = "<table><tr><td>" + lineinput + " " + stninput + " Station</td></tr><tr><td>Good</td></tr></table>";
           }
           return ret_elem;
         });
