@@ -63,7 +63,9 @@
               document.getElementById("data").innerHTML = table;
             }
           } else {
-          return upd(data["data"][lineinput + "-" + stninput], lineinput, stninput);
+          const temp = upd(data["data"][lineinput + "-" + stninput], lineinput, stninput);
+            alert(temp);
+            return temp;
           }
         });
       }
