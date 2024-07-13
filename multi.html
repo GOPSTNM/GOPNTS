@@ -25,7 +25,7 @@
       <option value="TCL">Tung Chung Line</option>
     </select>
     <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
-    <input type="button" onclick="lookfortrain ()" value="Find">
+    <input type="button" onclick="lookfortrain (TML, LOP)" value="Find">
     <p id="data"></p>
     <script>
       const stn = {
@@ -43,9 +43,9 @@
         MKK: "Mong Kok East", SHS: "Sheung Shui", MEF: "Mei Foo", 
         DIH: "Diamond Hill"
       };
-      function lookfortrain () {
-        var stninput = document.getElementById("stninput").value;
-        var lineinput = document.getElementById("lineinput").value;
+      function lookfortrain (lineinput, stninput) {
+        //var stninput = document.getElementById("stninput").value;
+        //var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
@@ -59,13 +59,13 @@
               document.getElementById("data").innerHTML = table;
             }
           } else {
-          upd (data["data"][lineinput + "-" + stninput]);
+          upd (data["data"][lineinput + "-" + stninput], lineinput, stninput);
           }
         });
       }
-      function upd(data) {
-        var stninput = document.getElementById("stninput").value;
-        var lineinput = document.getElementById("lineinput").value;
+      function upd(data, lineinput, stninput) {
+        //var stninput = document.getElementById("stninput").value;
+        //var lineinput = document.getElementById("lineinput").value;
         var dir = "UP";
         var testtable = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
           " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
