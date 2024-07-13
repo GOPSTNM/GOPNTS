@@ -57,10 +57,10 @@
           }
           alert(ret_elem);
         });
-        return ret_elem;
       }
       function lookfortrain() {
-        document.getElementById("data_to_show").innerHTML = proc_ret(document.getElementById("stninput").value, document.getElementById("lineinput").value);
+        proc_ret(document.getElementById("stninput").value, document.getElementById("lineinput").value);
+        document.getElementById("data_to_show").innerHTML = ret_elem;
       }
     </script>
   </body>
