@@ -30,9 +30,9 @@
     <script>
       function addcsed(){
       const table = "";
-      lookfortrain ('TML', 'LOP');
-      alert(table);
-      document.getElementById("data").innerHTML = table;
+      //lookfortrain ('TML', 'LOP');
+      alert(lookfortrain ('TML', 'LOP'););
+      //document.getElementById("data").innerHTML = table;
       }
       const stn = {
         ADM: "Admiralty",
@@ -50,8 +50,6 @@
         DIH: "Diamond Hill"
       };
       function lookfortrain (lineinput, stninput) {
-        //var stninput = document.getElementById("stninput").value;
-        //var lineinput = document.getElementById("lineinput").value;
         const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=" + lineinput + "&sta=" + stninput;
         fetch(url).then(response => response.json()).then(function(data){
           if (data["status"] == 0) {
@@ -70,8 +68,6 @@
         });
       }
       function upd(data, lineinput, stninput) {
-        //var stninput = document.getElementById("stninput").value;
-        //var lineinput = document.getElementById("lineinput").value;
         var dir = "UP";
         var testtable = "<table><tr><td colspan=4>" + lineinput + " " + stninput + 
           " Station</td></tr><tr><td>Destination</td><td></td><td>Time</td><td>Min</td></tr>";
@@ -112,6 +108,7 @@
               document.getElementById("data").innerHTML = table;
         } else {
           var table = table + "</table>";
+          return table;
           document.getElementById("data").innerHTML = table;
         }
       }
