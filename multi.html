@@ -13,23 +13,20 @@
       MTR Next Train 1.0</br>
       Choose Line & Station</br>
     </div>
-    <form action="form_sub()">
-      <select id="lineinput">
-        <option selected="true" disabled="true" value="TML">Choose A Line</option>
-        <option value="TML">Tuen Ma Line</option>
-        <option value="TWL">Tsuen Wan Line</option>
-        <option value="TKL">Tseung Kwan O Line</option>
-        <option value="SIL">South Island Line</option>
-        <option value="KTL">Kwun Tong Line</option>
-        <option value="ISL">Island Line</option>
-        <option value="EAL">East Rail Line</option>
-        <option value="AEL">Airport Express</option>
-        <option value="TCL">Tung Chung Line</option>
-      </select>
-      <input type="text" onkeyup="key()" id="stninput" placeholder="Enter Station Code">
-      <input type="button" onclick="lookfortrain ()" value="Find">
-      <input type="submit" value="Submit">
-    </form>
+    <select id="lineinput">
+      <option selected="true" disabled="true" value="TML">Choose A Line</option>
+      <option value="TML">Tuen Ma Line</option>
+      <option value="TWL">Tsuen Wan Line</option>
+      <option value="TKL">Tseung Kwan O Line</option>
+      <option value="SIL">South Island Line</option>
+      <option value="KTL">Kwun Tong Line</option>
+      <option value="ISL">Island Line</option>
+      <option value="EAL">East Rail Line</option>
+      <option value="AEL">Airport Express</option>
+      <option value="TCL">Tung Chung Line</option>
+    </select>
+    <input type="text" oninput="this.value = this.value.toUpperCase()" id="stninput" placeholder="Enter Station Code">
+    <input type="button" onclick="lookfortrain ()" value="Find">
     <p id="data_to_show"></p>
     <script>
       const code_to_stn = {
@@ -45,5 +42,8 @@
         SHT: "Sha Tin", FOT: "Fo Tan", MKK: "Mong Kok East", SHS: "Sheung Shui", 
         MEF: "Mei Foo", DIH: "Diamond Hill"
       };
+      function lookfortrain() {
+        alert("hi");
+      }
   </body>
 </html>
