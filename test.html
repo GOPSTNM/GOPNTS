@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Infinite Scrolling Text</title>
+  <style>
+    .text-container {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .text {
+      display: inline-block;
+      animation: scroll-left 10s linear infinite;
+      padding-right: 100%;
+      will-change: transform;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @media (min-width: 768px) {
+      .text {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="text-container">
+    <div class="text" id="text">This is a long text that should have a scrolling effect if the container is not wide enough to display it in a single row. This is a long text that should have a scrolling effect if the container is not wide enough to display it in a single row.</div>
+  </div>
+
+  <script>
+    const textElement = document.getElementById('text');
+    const containerElement = textElement.parentElement;
+
+    function checkTextWidth() {
+      if (textElement.offsetWidth > containerElement.offsetWidth) {
+        textElement.classList.add('text');
+      } else {
+        textElement.classList.remove('text');
+      }
+    }
+
+    window.addEventListener('resize', checkTextWidth);
+    checkTextWidth(); // Check initially
+  </script>
+</body>
+</html>
