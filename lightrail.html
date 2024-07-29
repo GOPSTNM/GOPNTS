@@ -96,7 +96,10 @@
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
                 var time = parseInt(data["platform_list"][plat]["route_list"][i]["time_en"]);
                 if (isNaN(time) == true){
-                  var time = "<div class='blink'>" + data["platform_list"][plat]["route_list"][i]["time_en"] + "</div>";
+                  var time = data["platform_list"][plat]["route_list"][i]["time_en"];
+                  if (time == "Arriving"){
+                    var time = "<div class='blink'>" + time + "</div>";
+                  }
                 }
                 //<div class='blink'>
                 var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + "</td><td>" + 
