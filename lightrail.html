@@ -102,7 +102,13 @@
                 if (isNaN(time) == true){
                   var time = data["platform_list"][plat]["route_list"][i]["time_en"];
                   if (time == "Arriving"){
-                    var time = "<div class='blink'>" + time + "</div>";
+                    var time = "<div class='blink'>1</div>";
+                  }
+                  if (time == "-"){
+                    var time = "<div class='blink'>0</div>";
+                  }
+                  if (time == "Departing"){
+                    var time = "-";
                   }
                 }
                 var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + "</td><td>" + 
