@@ -35,6 +35,10 @@ input[type=text], select {
   font-size: 20px;
   background-color: white;
   margin: 2px;
+  -webkit-transition: 0.5s;
+}
+input[type=text]:focus {
+  border: 2px solid Blue;
 }
 select {
   height: 44px;
