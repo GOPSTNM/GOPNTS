@@ -36,6 +36,7 @@ input[type=text], select {
   background-color: white;
   margin: 2px;
   -webkit-transition: 0.5s;
+  outline: none;
 }
 input[type=text]:focus {
   border: 2px solid Blue;
