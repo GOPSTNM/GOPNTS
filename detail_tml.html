@@ -74,7 +74,7 @@
             } else {
               data = data["data"]["TML" + "-" + api_code[i]];
 
-              count = i;
+              curstn = i;
               dn_train_here = 0;
               dn_train_bef = 0;
               dn_train_last = 0;
@@ -84,17 +84,17 @@
                     dn_train_time = 100;
                   } else {
                     dn_train_time = Math.ceil((new Date(data["DOWN"][i]["time"]) - new Date())/60000);
-                    //alert(journey_time[count-1]);
+                    //alert(journey_time[curstn-1]);
                   }
                   if (dn_train_time == 0) {
                     dn_train_here = 1;
-                  } else if (dn_train_time > 0 && dn_train_time < journey_time[count-1]){
+                  } else if (dn_train_time > 0 && dn_train_time < journey_time[curstn-1]){
                     dn_train_bef += 1;
-                  } else if (dn_train_time == journey_time[count-1]) {
+                  } else if (dn_train_time == journey_time[curstn-1]) {
                     dn_train_last += 1;
                   }
                 }
-                alert(api_code[count]);
+                alert(api_code[curstn]);
                 //alert(dn_train_last);
                 //alert(dn_train_bef);
                 //alert(dn_train_here);
