@@ -53,20 +53,11 @@
       const e_stn = ["Tuen Mun", "Siu Hong", "Tin Shui Wai", "Long Ping", "Yuen Long", "Kam Sheung Road", "Tsuen Wan West", "Mei Foo", "Nam Cheong", "Austin", "East Tsim Sha Tsui", "Hung Hom", "Ho Man Tin", "To Kwa Wan", "Sung Wong Toi", "Kai Tak", "Diamond Hill", "Hin Keng", "Tai Wai", "Che Kung Temple", "Sha Tin Wai", "City One", "Shek Mun", "Tai Shui Hang", "Heng On", "Ma On Shan", "Wu Kai Sha"];
       const code = ["TUM", "SIH", "TIS", "LOP", "YUL", "KSR", "TWW", "MEF", "NAC", "AUS", "ETS", "HUH", "HOM", "TKW", "SUW", "KAT", "DIH", "HIK", "TAW", "CKT", "STW", "CIO", "SHM", "TSH", "HEO", "MOS", "WKS"];
       function update() {
-        //TBDS
-        let detail = [document.getElementById("stn_no").value, document.getElementById("pass_stn").value, document.getElementById("start_stn").value, document.getElementById("dir").value, 1, 0, "如感到不適，請落車並請職員協助"];
         let line_color = data[0];
-        let grey = detail[0]*98/(detail[1]-1)+1;
         let width = data[0];
         elem = `<div class='line' style='width: ${width}vw; background: linear-gradient(to right, White 1%, Silver 1%, Silver ${grey}%, #${line_color} ${grey}%, #${line_color} 99%, White 99%);'>`;
         for (let i = detail[3]+detail[4]*detail[1]; i < detail[1],i>=0; i+=1+detail[4]*-1) {
-          if (i<=detail[1]) {
-            elem += "<div class='circ' style='border-color: Silver; background-color: White;'></div>";
-          } else if (i==detail[1]+1 && new Date().getSeconds()%2==0) {
-            elem += "<div class='circ' style='border-color: Black; background-color: White;'></div>";
-          } else {
-            elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
-          }
+          elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
         }
         elem += "</div>";
         for (let i = detail[3]+detail[4]*detail[1]; i < detail[1],i>=0; i+=1+detail[4]*-1) {
