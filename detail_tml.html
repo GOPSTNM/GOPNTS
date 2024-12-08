@@ -84,7 +84,7 @@
                     dn_train_time = 100;
                   } else {
                     dn_train_time = Math.ceil((new Date(data["DOWN"][i]["time"]) - new Date())/60000);
-                    alert(journey_time[count-1]);
+                    //alert(journey_time[count-1]);
                   }
                   if (dn_train_time = 0) {
                     dn_train_here = 1;
@@ -96,7 +96,7 @@
                 }
                 //alert(dn_train_last);
                 //alert(dn_train_bef);
-                //alert(dn_train_here);
+                alert(dn_train_here);
               }
             }
           });
