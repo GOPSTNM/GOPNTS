@@ -66,40 +66,40 @@
           elem += `<div class='stn_name' style='color: Black; font-size: calc(90vw/160); top:${45}%; left: ${mid}vw;'>${api_code[i]}</div>`;
         }
         document.getElementById("drm").innerHTML = elem;
-      }
-      for (let i = 0; i < api_code.length; i++) {
-        const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=TML&sta=" + api_code[i];
-        fetch(url).then(response => response.json()).then(function(data){
-          if (data["status"] == 0) {
-            alert("No Data. Because of an incident on the line.");
-          } else {
-            data = data["data"]["TML" + "-" + api_code[i]];
+        for (let i = 0; i < api_code.length; i++) {
+          const url = "https://rt.data.gov.hk/v1/transport/mtr/getSchedule.php?line=TML&sta=" + api_code[i];
+          fetch(url).then(response => response.json()).then(function(data){
+            if (data["status"] == 0) {
+              alert("No Data. Because of an incident on the line.");
+            } else {
+              data = data["data"]["TML" + "-" + api_code[i]];
 
-            count = i;
-            dn_train_here = 0;
-            dn_train_bef = 0;
-            dn_train_last = 0;
-            if (i != 0) {
-              for (let i = 0; i < 4; i++) {
-                if (data["DOWN"][i]["time"] === undefined) {
-                  dn_train_time = 100;
-                } else {
-                  dn_train_time = Math.ceil((new Date(data["DOWN"][i]["time"]) - new Date())/60000);
+              count = i;
+              dn_train_here = 0;
+              dn_train_bef = 0;
+              dn_train_last = 0;
+              if (i != 0) {
+                for (let i = 0; i < 4; i++) {
+                  if (data["DOWN"][i]["time"] === undefined) {
+                    dn_train_time = 100;
+                  } else {
+                    dn_train_time = Math.ceil((new Date(data["DOWN"][i]["time"]) - new Date())/60000);
+                  }
+                  if (dn_train_time = 0) {
+                    dn_train_here = 1;
+                  } else if (dn_train_time > 0 && dn_train_time < journey_time[count-1]){
+                    dn_train_bef += 1;
+                  } else if (dn_train_time == journey_time[count-1]) {
+                    dn_train_last += 1;
+                  }
                 }
-                if (dn_train_time = 0) {
-                  dn_train_here = 1;
-                } else if (dn_train_time > 0 && dn_train_time < journey_time[count-1]){
-                  dn_train_bef += 1;
-                } else if (dn_train_time == journey_time[count-1]) {
-                  dn_train_last += 1;
-                }
+                alert(dn_train_last);
+                alert(dn_train_bef);
+                alert(dn_train_here);
               }
-              alert(dn_train_last);
-              alert(dn_train_bef);
-              alert(dn_train_here);
             }
-          }
-        });
+          });
+        }
       }
     </script>
   </body>
