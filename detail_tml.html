@@ -57,7 +57,7 @@
         let line_color = data[0];
         let width = data[0];
         elem = `<div class='line' style='width: ${width}vw; background: linear-gradient(to right, White 1%, Silver 1%, Silver ${grey}%, #${line_color} ${grey}%, #${line_color} 99%, White 99%);'>`;
-        for (let i = 0; i < api_code.length; i+=1;) {
+        for (let i = 0; i < api_code.length; i++) {
           elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
         }
         elem += "</div>";
