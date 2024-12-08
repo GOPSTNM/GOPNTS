@@ -54,6 +54,7 @@
       const api_code = ["TUM", "SIH", "TIS", "LOP", "YUL", "KSR", "TWW", "MEF", "NAC", "AUS", "ETS", "HUH", "HOM", "TKW", "SUW", "KAT", "DIH", "HIK", "TAW", "CKT", "STW", "CIO", "SHM", "TSH", "HEO", "MOS", "WKS"];
       const journey_time = [2, 4, 3, 2, 3, 7, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 3, 2, 2, 2, 2, 2, 2, 2, 2];
       function update() {
+        train_loc = [];
         let line_color = data[1];
         let width = data[0];    
         elem = `<div class='line' style='width: ${width}vw; background: linear-gradient(to right, White 1%, #${line_color} 1%, #${line_color} 99%, White 99%);'>`;
@@ -84,7 +85,6 @@
                     dn_train_time = 100;
                   } else {
                     dn_train_time = Math.ceil((new Date(data["DOWN"][i]["time"]) - new Date())/60000);
-                    //alert(journey_time[curstn-1]);
                   }
                   if (dn_train_time == 0) {
                     dn_train_here = 1;
@@ -94,12 +94,11 @@
                     dn_train_last += 1;
                   }
                 }
-                //alert(dn_train_last);
-                //alert(dn_train_bef);
-                alert(dn_train_here);
+                train_loc.push("dn", curstn, dn_train_last, dn_train_bef, dn_train_here);
               }
             }
           });
+          alert(train_loc);
         }
       }
     </script>
