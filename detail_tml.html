@@ -54,14 +54,14 @@
       const api_code = ["TUM", "SIH", "TIS", "LOP", "YUL", "KSR", "TWW", "MEF", "NAC", "AUS", "ETS", "HUH", "HOM", "TKW", "SUW", "KAT", "DIH", "HIK", "TAW", "CKT", "STW", "CIO", "SHM", "TSH", "HEO", "MOS", "WKS"];
       function update() {
         let line_color = data[1];
-        let width = data[0];
-        let mid = ((i*(width-90/330-90/86)/(detail[1]-1))-(90-width)/2)-90/660;
+        let width = data[0];    
         elem = `<div class='line' style='width: ${width}vw; background: linear-gradient(to right, White 1%, #${line_color} 1%, #${line_color} 99%, White 99%);'>`;
         for (let i = 0; i < api_code.length; i++) {
           elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
         }
         elem += "</div>";
         for (let i = 0; i < api_code.length; i++) {
+          let mid = ((i*(width-90/330-90/86)/(detail[1]-1))-(90-width)/2)-90/660;
           elem += `<div class='stn_name' style='color: Black; font-size: calc(90vw/160); top:${53-13*(i%2)}%; left: ${mid}vw;'>${api_code[i]}</div>`;
         }
         document.getElementById("drm").innerHTML = elem;
