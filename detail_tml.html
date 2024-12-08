@@ -60,6 +60,9 @@
           elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
         }
         elem += "</div>";
+        for (let i = 0; i < api_code.length; i++) {
+          elem += `<div class='stn_name' style='color: Black; font-size: calc(90vw/160); top:${53-13*(i%2)}%; ${lr}: ${mid}vw;'>${api_code[i]}</div>`;
+        }
         document.getElementById("drm").innerHTML = elem;
       }
     </script>
