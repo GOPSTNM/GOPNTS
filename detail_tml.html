@@ -73,7 +73,13 @@
           if (data["status"] == 0) {
             alert("No Data. Because of an incident on the line.");
           } else {
-          data = data["data"]["TML" + "-" + api_code[i]];
+            data = data["data"]["TML" + "-" + api_code[i]];
+
+            if (i != 0) {
+              for (let i = 0; i < 4; i++) {
+                if data[UP][i]["time"]
+              }
+            }
           }
         });
       }
