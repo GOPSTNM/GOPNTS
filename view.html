@@ -124,11 +124,10 @@
         if (event.key === 'Enter') {
           lookfortrain();
         }
-    </script>
-    <script>
-      while (1==1) {
-        setTimeout(function(){lookfortrain();}, 2000);
-      }
+        function myFunction () {
+          lookfortrain();
+        }
+        var interval = setInterval(function () { myFunction(); }, 30000);
     </script>
   </body>
 </html>
