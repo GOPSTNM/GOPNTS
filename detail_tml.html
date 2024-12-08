@@ -10,6 +10,7 @@
       body {
         font-family: "Roboto", serif;
         font-weight: 580;
+        vertical-align: middle;
       }
       .drm_base {
         position: relative;
@@ -60,21 +61,6 @@
           elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
         }
         elem += "</div>";
-        for (let i = detail[3]+detail[4]*detail[1]; i < detail[1],i>=0; i+=1+detail[4]*-1) {
-          if (detail[4] == 1) {
-            lr = "right";
-          } else {
-            lr = "left";
-          }
-          let mid = ((i*(width-90/330-90/86)/(detail[1]-1))-(90-width)/2)-90/660;
-          if (i<=detail[2]) {
-            elem += `<div class='stn_name' style='color: Silver; font-size: calc(90vw/86); top:${48-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_c_stn"][i]}</div>`;
-            elem += `<div class='stn_name etext' style='color: Silver; font-size: calc(90vw/160); top:${53-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_e_stn"][i]}</div>`;
-          } else {
-            elem += `<div class='stn_name' style='color: Black; font-size: calc(90vw/86); top:${48-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_c_stn"][i]}</div>`;
-            elem += `<div class='stn_name etext' style='color: Black; font-size: calc(90vw/160); top:${53-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_e_stn"][i]}</div>`;
-          }
-        }   
         document.getElementById("drm").innerHTML = elem;
       }
     </script>
