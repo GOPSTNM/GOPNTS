@@ -61,7 +61,7 @@
         }
         elem += "</div>";
         for (let i = 0; i < api_code.length; i++) {
-          let mid = ((i*(width-0.2-1.2)/(api_code.length-1))-(95-width)/2+0.1);
+          let mid = ((i*(width-0.2-1.2)/(api_code.length-1))-(95-width)/2);
           elem += `<div class='stn_name' style='color: Black; font-size: calc(90vw/160); top:${41}%; left: ${mid}vw;'>${api_code[i]}</div>`;
         }
         document.getElementById("drm").innerHTML = elem;
