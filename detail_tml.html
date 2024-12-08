@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@200..900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@500&display=swap');
+      .ctext {
+        font-family: "Noto Serif HK", serif;
+        font-weight: 580;
+      }
+      body {
+        font-family: "Roboto", serif;
+        font-weight: 580;
+        text-align: center;
+      }
+      .drm_base {
+        position: relative;
+        height: 40%;
+        width: 100%;
+        border: 6% solid DimGray;
+      }
+      .line {
+        position: absolute;
+        left: 50%;
+        top: 46%;
+        transform: translate(-50%, -50%);
+        height: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+      }
+      .stn_name {
+        position: absolute;
+        width: 10%
+        white-space: nowrap;
+        text-align: center;
+        align-content: center;
+      }
+      .circ {
+        height: 9.5%;
+        width: 9.5%;
+        border-radius: 100%;
+        border: 1% solid;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="width: 100%; height: 50px; color: White; background-color: #9B2E08;">屯馬綫列車位置</h1>
+    <div class="drm_base" id="drm"></div>
+    <input type="button" value="Update" onclick="update()">
+    <script>
+      // length of route in vw, colour, c name, e name
+      const data = [90, "9B2E08", "屯馬綫", "Tuen Ma Line"];
+      const c_stn: ["屯門", "兆康", "天水圍", "朗屏", "元朗", "錦上路", "荃灣西", "美孚", "南昌", "柯士甸", "尖東", "紅磡", "何文田", "土瓜灣", "宋皇臺", "啟德", "鑽石山", "顯徑", "大圍", "車公廟", "沙田圍", "第一城", "石門", "大水坑", "恆安", "馬鞍山", "烏溪沙"];
+      const e_stn: ["Tuen Mun", "Siu Hong", "Tin Shui Wai", "Long Ping", "Yuen Long", "Kam Sheung Road", "Tsuen Wan West", "Mei Foo", "Nam Cheong", "Austin", "East Tsim Sha Tsui", "Hung Hom", "Ho Man Tin", "To Kwa Wan", "Sung Wong Toi", "Kai Tak", "Diamond Hill", "Hin Keng", "Tai Wai", "Che Kung Temple", "Sha Tin Wai", "City One", "Shek Mun", "Tai Shui Hang", "Heng On", "Ma On Shan", "Wu Kai Sha"];
+      function update() {
+        //TBDS
+        let detail = [document.getElementById("stn_no").value, document.getElementById("pass_stn").value, document.getElementById("start_stn").value, document.getElementById("dir").value, 1, 0, "如感到不適，請落車並請職員協助"];
+        let line_color = data[0];
+        let grey = detail[0]*98/(detail[1]-1)+1;
+        let width = data[0];
+        elem = `<div class='line' style='width: ${width}vw; background: linear-gradient(to right, White 1%, Silver 1%, Silver ${grey}%, #${line_color} ${grey}%, #${line_color} 99%, White 99%);'>`;
+        for (let i = detail[3]+detail[4]*detail[1]; i < detail[1],i>=0; i+=1+detail[4]*-1) {
+          if (i<=detail[1]) {
+            elem += "<div class='circ' style='border-color: Silver; background-color: White;'></div>";
+          } else if (i==detail[1]+1 && new Date().getSeconds()%2==0) {
+            elem += "<div class='circ' style='border-color: Black; background-color: White;'></div>";
+          } else {
+            elem += "<div class='circ' style='border-color: Black; background-color: Yellow;'></div>";
+          }
+        }
+        elem += "</div>";
+        for (let i = detail[3]+detail[4]*detail[1]; i < detail[1],i>=0; i+=1+detail[4]*-1) {
+          if (detail[4] == 1) {
+            lr = "right";
+          } else {
+            lr = "left";
+          }
+          let mid = ((i*(width-90/330-90/86)/(detail[1]-1))-(90-width)/2)-90/660;
+          if (i<=detail[2]) {
+            elem += `<div class='stn_name' style='color: Silver; font-size: calc(90vw/86); top:${48-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_c_stn"][i]}</div>`;
+            elem += `<div class='stn_name etext' style='color: Silver; font-size: calc(90vw/160); top:${53-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_e_stn"][i]}</div>`;
+          } else {
+            elem += `<div class='stn_name' style='color: Black; font-size: calc(90vw/86); top:${48-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_c_stn"][i]}</div>`;
+            elem += `<div class='stn_name etext' style='color: Black; font-size: calc(90vw/160); top:${53-13*(i%2)}%; ${lr}: ${mid}vw;'>${data[detail[0]+"_e_stn"][i]}</div>`;
+          }
+        }   
+        elem += "<h1 class='bar' style=''>本班列車以第一城為終點站</h1>"
+        document.getElementById("drm").innerHTML = elem;
+      }
+    </script>
+  </body>
+</html>
