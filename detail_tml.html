@@ -44,14 +44,14 @@
     </style>
   </head>
   <body>
-    <h1 style="width: 100%; height: 50px; color: White; background-color: #9B2E08;">屯馬綫列車位置</h1>
+    <h1 style="width: 100%; height: 50px; color: White; background-color: #9B2E08;">Tuen Ma Line Train Location</h1>
     <div class="drm_base" id="drm"></div>
     <input type="button" value="Update" onclick="update()">
     <script>
       const data = [90, "9B2E08", "屯馬綫", "Tuen Ma Line"];
       const c_stn = ["屯門", "兆康", "天水圍", "朗屏", "元朗", "錦上路", "荃灣西", "美孚", "南昌", "柯士甸", "尖東", "紅磡", "何文田", "土瓜灣", "宋皇臺", "啟德", "鑽石山", "顯徑", "大圍", "車公廟", "沙田圍", "第一城", "石門", "大水坑", "恆安", "馬鞍山", "烏溪沙"];
       const e_stn = ["Tuen Mun", "Siu Hong", "Tin Shui Wai", "Long Ping", "Yuen Long", "Kam Sheung Road", "Tsuen Wan West", "Mei Foo", "Nam Cheong", "Austin", "East Tsim Sha Tsui", "Hung Hom", "Ho Man Tin", "To Kwa Wan", "Sung Wong Toi", "Kai Tak", "Diamond Hill", "Hin Keng", "Tai Wai", "Che Kung Temple", "Sha Tin Wai", "City One", "Shek Mun", "Tai Shui Hang", "Heng On", "Ma On Shan", "Wu Kai Sha"];
-      const code = ["TUM", "SIH", "TIS", "LOP", "YUL", "KSR", "Tsuen Wan West", "Mei Foo", "Nam Cheong", "Austin", "East Tsim Sha Tsui", "Hung Hom", "Ho Man Tin", "To Kwa Wan", "Sung Wong Toi", "Kai Tak", "Diamond Hill", "Hin Keng", "Tai Wai", "Che Kung Temple", "Sha Tin Wai", "City One", "Shek Mun", "Tai Shui Hang", "Heng On", "Ma On Shan", "Wu Kai Sha"];
+      const code = ["TUM", "SIH", "TIS", "LOP", "YUL", "KSR", "TWW", "MEF", "NAC", "AUS", "ETS", "HUH", "HOM", "TKW", "SUW", "KAT", "DIH", "HIK", "TAW", "CKT", "STW", "CIO", "SHM", "TSH", "HEO", "MOS", "WKS"];
       function update() {
         //TBDS
         let detail = [document.getElementById("stn_no").value, document.getElementById("pass_stn").value, document.getElementById("start_stn").value, document.getElementById("dir").value, 1, 0, "如感到不適，請落車並請職員協助"];
