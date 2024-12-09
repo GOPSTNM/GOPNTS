@@ -54,7 +54,7 @@
       const api_code = ["TUM", "SIH", "TIS", "LOP", "YUL", "KSR", "TWW", "MEF", "NAC", "AUS", "ETS", "HUH", "HOM", "TKW", "SUW", "KAT", "DIH", "HIK", "TAW", "CKT", "STW", "CIO", "SHM", "TSH", "HEO", "MOS", "WKS"];
       const journey_time = [2, 4, 3, 2, 3, 7, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 3, 2, 2, 2, 2, 2, 2, 2, 2];
       function update() {
-        train_loc = [];
+        const train_loc = [];
         let line_color = data[1];
         let width = data[0];    
         elem = `<div class='line' style='width: ${width}vw; background: linear-gradient(to right, White 1%, #${line_color} 1%, #${line_color} 99%, White 99%);'>`;
