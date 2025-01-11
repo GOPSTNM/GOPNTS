@@ -27,7 +27,7 @@
     </select>
     <input type="text" oninput="this.value = this.value.toUpperCase()" id="stninput" placeholder="Enter Station Code">
     <input type="button" onclick="lookfortrain()" value="Find">
-    <p id="data_to_show"></p>
+    <div id="data_to_show"></div>
     <script>
       const code_to_stn = {
         ADM: "Admiralty", TUM: "Tuen Mun", WKS: "Wu Kai Sha", LOW: "Lo Wu", 
@@ -61,7 +61,7 @@
       function lookfortrain() {
         proc_ret(document.getElementById("stninput").value, document.getElementById("lineinput").value);
         alert(ret_elem);
-        document.getElementById("data_to_show").innerHTML = ret_elem;
+        let document.getElementById("data_to_show").innerHTML = ret_elem;
       }
     </script>
   </body>
