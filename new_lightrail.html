@@ -156,9 +156,9 @@ input[type=button], button{
               var table = table + "<tr><th colspan=4>Platform " + data["platform_list"][plat]["platform_id"] + 
                 "</th></tr>";
               for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
-                var time = parseInt(data["platform_list"][plat]["route_list"][i]["time_ch"]);
+                var time = parseInt(data["platform_list"][plat]["route_list"][i]["time_en"]);
                 if (isNaN(time) == true){
-                  var time = data["platform_list"][plat]["route_list"][i]["time_ch"];
+                  var time = data["platform_list"][plat]["route_list"][i]["time_en"];
                   if (time == "Arriving"){
                     var time = "<div class='blink'>即將到達</div>";
                   }
