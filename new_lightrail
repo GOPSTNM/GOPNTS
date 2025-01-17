@@ -1,0 +1,184 @@
+<html>
+  <head>
+    <style>
+      .text1 {
+  color: DarkOrange;
+  text-align: left;
+  padding: 5px 0px;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+tr:nth-child(even) {
+  background-color: LightSkyBlue;
+}
+td, th{
+  padding: 8px 10px;
+  color: Navy;
+  text-align: left;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+th {
+  text-align: left;
+  color: DarkOrange;
+}
+input[type=text], select {
+  height: 20px;
+  width: 300px;
+  padding: 20px 5px;
+  display: inline-block;
+  border: 2px solid DarkOrange;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: Black;
+  font-size: 20px;
+  background-color: white;
+  margin: 2px;
+  -webkit-transition: 0.5s;
+  outline: none;
+}
+input[type=text]:focus {
+  border: 2px solid Blue;
+}
+select {
+  height: 44px;
+}
+input[type=button], button{
+  width: 300px;
+  background-color: DarkOrange;
+  padding: 7px 5px 8px;
+  margin: 2px;
+  color: white;
+  font-size: 20px;
+  border: 2px solid DarkOrange;
+}
+.blink {
+  color: DarkOrange;
+  animation: blink 2s linear infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+  0%, 20%, 80%, 100% {
+    opacity: 1;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="text1">
+      Light Rail Next Train</br>
+      Choose Zone & Stop</br>
+    </div>
+    <select id="lightrailzone" onchange="zonechange()">
+      <option selected="true" disabled="true" value=0>Choose a zone</option>
+      <option value=8>Show Stops in All Zones</option>
+      <option value=7>Tuen Ma Line Interchange</option>
+      <option value=1>Zone 1</option>
+      <option value=2>Zone 2</option>
+      <option value=3>Zone 3</option>
+      <option value=4>Zone 4</option>
+      <option value=5>Zone 5</option>
+      <option value=6>Zone 5A</option>
+    </select>
+    <select id="lightrailstop" onchange="stopchange()">
+      <option disabled="true" value=0>Choose a stop</option>
+      <option disabled="true" value=0>Choose a zone before choosing a stop</option>
+    </select>
+    <input type="button" onclick="lookfortrain ()" value="Find">
+    <p id="data"></p>
+    <script>
+      const stn = [
+        ["Tuen Mun Ferry Pier 屯門碼頭", "Melody Garden 美樂", "Butterfly 蝴蝶", 
+        "Light Rail Depot 輕鐵車廠", "Lung Mun 龍門", "Siu Hei 兆禧",
+        "Tuen Mun Swimming Pool 屯門泳池", "Goodview Garden 豐景園", 
+        "Siu Lun 兆麟", "Sam Shing 三聖"], 
+        [1, 10, 15, 20, 30, 240, 250, 260, 265, 920], 
+        ["Tsing Shan Tsuen 青山村", "Tsing Wun 青雲", "Kin On 建安", "Ho Tin 河田", "Choy Yee Bridge 蔡意橋", 
+         "Affluence 澤豐", "Shek Pai 石排", "Shan King (North) 山景 (北)", "Shan King (South) 山景 (南)", "Ming Kum 鳴琴", 
+         "Tai Hing (North) 大興 (北)", "Tai Hing (South) 大興 (南)", "Ngan Wai 銀圍", "On Ting 安定", "Yau Oi 友愛", 
+         "Town Centre 市中心", "Tuen Mun 屯門", "Pui To 杯渡", "Hoh Fuk Tong 何福堂", "San Hui 新墟", "Prime View 景峰"], 
+        [40, 50, 60, 70, 75, 80, 170, 180, 190, 200, 212, 220, 230, 270, 275, 280, 295, 300, 
+         310, 320, 330], 
+        ["Tuen Mun Hospital 屯門醫院", "Siu Hong 兆康", "Kei Lun 麒麟", "Ching Chung 青松", "Kin Sang 建生", 
+         "Tin King 田景", "Leung King 良景", "San Wai 新圍", "Fung Tei 鳳地", "Lam Tei 藍地", "Nai Wai 泥圍", 
+         "Chung Uk Tsuen 鍾屋村"], 
+        [90, 100, 110, 120, 130, 140, 150, 160, 340, 350, 360, 370], 
+        ["Hung Shui Kiu 洪水橋", "Tong Fong Tsuen 塘坊村", "Ping Shan 屏山", "Hang Mei Tsuen 坑尾村", 
+         "Tin Shui Wai 天水圍", "Tin Tsz 天慈", "Tin Yiu 天耀", "Locwood 樂湖", "Tin Wu 天湖", 
+         "Ginza 銀座", "Tin Shui 天瑞", "Chestwood 翠湖", "Tin Wing 天榮"], 
+        [380, 390, 400, 425, 430, 435, 445, 448, 450, 455, 460, 490, 500], 
+        ["Shui Pin Wai 水邊圍", "Fung Nin Road 豐年路", "Hong Lok Road 康樂路", "Tai Tong Road 大棠路", 
+         "Yuen Long 元朗"], 
+        [560, 570, 580, 590, 600], 
+        ["Chung Fu 頌富", "Tin Fu 天富", "Tin Yuet 天悅", "Tin Sau 天秀", "Wetland Park 濕地公園", "Tin Heng 天恒", 
+         "Tin Yat 天逸"], 
+        [468, 480, 510, 520, 530, 540, 550], 
+        ["Tuen Mun 屯門", "Siu Hong 兆康", "Tin Shui Wai 天水圍", "Yuen Long 元朗"], 
+        [295, 100, 430, 600]
+      ];
+      function zonechange() {
+        var cont = "<option selected='true' value=0 disabled='true'>Choose a stop</option>";
+        if (document.getElementById("lightrailzone").value==8) {
+          for (let i = 0; i < 6; i++) {
+            var tempzone = i+1;
+            if (tempzone == 6) {var cont = cont + "<optgroup label='Zone 5A'>";
+            }else{var cont = cont + "<optgroup label='Zone " + tempzone + "'>";}
+            for (let i = 0; i < stn[(tempzone)*2-1].length; i++) {
+              var cont = cont + getname(tempzone, i);
+            }
+            var cont = cont + "</optgroup>";
+          }
+        }else{
+          for (let i = 0; i < stn[document.getElementById("lightrailzone").value*2-1].length; i++) {
+            var cont = cont + getname(document.getElementById("lightrailzone").value, i);
+          }
+        }
+        document.getElementById("lightrailstop").innerHTML = cont;
+      }
+      function getname(zone, i) {
+        return "<option value=" + stn[zone*2-1][i] + ">" + stn[zone*2-2][i] + "</option>";
+      }
+      function lookfortrain () {
+        var url = "https://rt.data.gov.hk/v1/transport/mtr/lrt/getSchedule?station_id=" + document.getElementById("lightrailstop").value;
+        fetch(url).then(response => response.json()).then(function(data){
+          if (data["status"] == 0) {
+            alert("No Data."); 
+          } else {
+            var table = "<table><tr><td width=12.5%>Route</td><td width=60%>Destination</td><td width=7.5%>Car</td><td width=20%>Min</td></tr>";
+            for (let i = 0; i < data["platform_list"].length; i++) {
+              let plat = i;
+              var table = table + "<tr><th colspan=4>Platform " + data["platform_list"][plat]["platform_id"] + 
+                "</th></tr>";
+              for (let i = 0; i < data["platform_list"][plat]["route_list"].length; i++) {
+                var time = parseInt(data["platform_list"][plat]["route_list"][i]["time_tc"]);
+                if (isNaN(time) == true){
+                  var time = data["platform_list"][plat]["route_list"][i]["time_tc"];
+                  if (time == "Arriving"){
+                    var time = "<div class='blink'>1</div>";
+                  }
+                  if (time == "-"){
+                    var time = "<div class='blink'>0</div>";
+                  }
+                  if (time == "Departing"){
+                    var time = "-";
+                  }
+                }
+                var table = table + "<tr><td>" + data["platform_list"][plat]["route_list"][i]["route_no"] + "</td><td>" + 
+                  data["platform_list"][plat]["route_list"][i]["dest_tc"] + "</td><td>" + 
+                  data["platform_list"][plat]["route_list"][i]["train_length"] + "</td><td>" + 
+                  time + "</td></tr>";
+              }
+            }
+            document.getElementById("data").innerHTML = table + "</table>";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
