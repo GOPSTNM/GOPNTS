@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Example</title>
+</head>
+<body>
+    <h1>API Data</h1>
+    <div id="results"></div>
+    <script>
+        const url = 'https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule'; // Replace with your API endpoint
+        const params = {"language": 'zh', "routeName": 'K66' }; // Replace with your query parameters
+
+        // Fetch the data
+        fetch(`${url}?${new URLSearchParams(params)}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Display the results
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.textContent = JSON.stringify(data, null, 2); // Pretty print JSON
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.textContent = 'Error fetching data. Please try again later.';
+            });
+    </script>
+</body>
+</html>
