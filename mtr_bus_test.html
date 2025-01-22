@@ -3,33 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch API Example</title>
+    <title>Fetch MTR Bus Schedule</title>
 </head>
 <body>
-    <h1>API Data</h1>
+    <h1>MTR Bus Schedule for Route K66</h1>
     <div id="results"></div>
     <script>
-        const url = 'https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule'; // Replace with your API endpoint
-        const params = {language: 'zh', routeName: 'K66' }; // Replace with your query parameters
+        const url = 'https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule';
+        
+        const params = {
+            language: 'en',
+            routeName: 'K66'
+        };
 
-        // Fetch the data
-        fetch(`${url}?${new URLSearchParams(params)}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Display the results
-                const resultsDiv = document.getElementById('results');
-                resultsDiv.textContent = JSON.stringify(data, null, 2); // Pretty print JSON
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                const resultsDiv = document.getElementById('results');
-                resultsDiv.textContent = 'Error fetching data. Please try again later.';
-            });
+        // Fetch the data with parameters
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        })
+        .then(response => {
+            console.log('Response status:', response.status);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data received:', data);
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.textContent = JSON.stringify(data, null, 2); // Pretty print JSON
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.textContent = `Error fetching data: ${error.message}`;
+        });
     </script>
 </body>
 </html>
