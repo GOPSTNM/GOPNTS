@@ -10,7 +10,7 @@
     <div id="results"></div>
     <script>
         const url = 'https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule'; // Replace with your API endpoint
-        const params = {"language": 'zh', "routeName": 'K66' }; // Replace with your query parameters
+        const params = {language: 'zh', routeName: 'K66' }; // Replace with your query parameters
 
         // Fetch the data
         fetch(`${url}?${new URLSearchParams(params)}`)
