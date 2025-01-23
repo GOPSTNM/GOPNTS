@@ -34,7 +34,8 @@
         .then(data => {
             console.log('Data received:', data);
             const resultsDiv = document.getElementById('results');
-            resultsDiv.textContent = JSON.stringify(data, null, 2); // Pretty print JSON
+            
+            resultsDiv.textContent = toshow;
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
