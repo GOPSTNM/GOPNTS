@@ -38,6 +38,7 @@
             for (let i = 0; i < data["busStop"].length; i++) {
                 for (let k = 0; k < data["busStop"][i]["bus"].length; k++) {
                     toshow += data["busStop"][i]["bus"][k]["busId"];
+                    toshow += "  ";
                 }
                 toshow += "<br>";
             }
