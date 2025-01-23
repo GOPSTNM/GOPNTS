@@ -39,6 +39,7 @@
                 for (let k = 0; k < data["busStop"][i]["bus"].length; k++) {
                     toshow += data["busStop"][i]["bus"][k]["busId"];
                 }
+                toshow += "<br>";
             }
             resultsDiv.textContent = toshow;
         })
