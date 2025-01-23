@@ -33,8 +33,12 @@
         })
         .then(data => {
             console.log('Data received:', data);
+            toshow = "";
             const resultsDiv = document.getElementById('results');
             for (let i = 0; i < data["busStop"].length; i++) {
+                for (let k = 0; k < data["busStop"][i]["bus"].length; k++) {
+                    toshow += data["busStop"][i]["bus"][k]["busId"];
+                }
             }
             resultsDiv.textContent = toshow;
         })
