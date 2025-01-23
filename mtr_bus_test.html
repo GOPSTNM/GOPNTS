@@ -34,7 +34,8 @@
         .then(data => {
             console.log('Data received:', data);
             const resultsDiv = document.getElementById('results');
-            alert(data["busStop"].length);
+            for (let i = 0; i < data["busStop"].length; i++) {
+            }
             resultsDiv.textContent = toshow;
         })
         .catch(error => {
