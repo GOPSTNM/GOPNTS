@@ -1,34 +1,23 @@
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MTR Bus Arrival Time</title>
-</head>
-<body>
-    <h1>MTR Bus Arrival Time</h1>
-    <select id="cars">
-        <option value="volvo">Volvo</option>
-    </select>
-    <input type="button" value="Update" onclick="update()">
-    <div id="results"></div>
-    <script>
-        function update() {
-        const url = 'https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule';
-        
-        const params = {
-            language: 'en',
-            routeName: 'K76'
-        };
-
-        // Fetch the data with parameters
-        fetch("https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(params)
-        })
-        .then(response => {
-            console.log('Response status:', response.status);
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MTR Bus Arrival Time</title>
+    </head>
+    <body>
+        <h1>MTR Bus Arrival Time</h1>
+        <select id="route">
+            <option value="K76">K76天恆至天水圍站</option>
+        </select>
+        <input type="button" value="Update" onclick="update()">
+        <div id="results"></div>
+        <script>
+            function update() {
+                let params = {
+                    language: "en",
+                    routeName: "K76"
+                };
+                fetch("https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule", {body: JSON.stringify(params)})
+                    .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
