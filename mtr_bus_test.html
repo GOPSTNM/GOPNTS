@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch MTR Bus Schedule</title>
+    <title>MTR Bus Arrival Time</title>
 </head>
 <body>
-    <h1>MTR Bus Schedule for Route K66</h1>
+    <h1>MTR Bus Arrival Time</h1>
+    <select id="cars">
+        <option value="volvo">Volvo</option>
+    </select>
+    <input type="button" value="Update" onclick="update()">
     <div id="results"></div>
     <script>
+        function update() {
         const url = 'https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule';
         
         const params = {
@@ -17,7 +20,7 @@
         };
 
         // Fetch the data with parameters
-        fetch(url, {
+        fetch("https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,6 +53,7 @@
             const resultsDiv = document.getElementById('results');
             resultsDiv.textContent = `Error fetching data: ${error.message}`;
         });
+        }
     </script>
 </body>
 </html>
