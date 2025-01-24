@@ -5,7 +5,8 @@
     </head>
     <body>
         <h1>MTR Bus Arrival Time</h1>
-        <select id="route">
+        <select id="route"> 
+            <option value="506">506屯門碼頭至兆麟</option>
             <option value="K76">K76天恆至天水圍站</option>
         </select>
         <input type="button" value="Update" onclick="update()">
@@ -15,7 +16,7 @@
                 let results = "";
                 let params = {
                     language: "en",
-                    routeName: "K76"
+                    routeName: document.getElementById("route").value
                 };
                 fetch("https://rt.data.gov.hk/v1/transport/mtr/bus/getSchedule", {method: "POST", headers:{"Content-Type": "application/json"}, body: JSON.stringify(params)})
                     .then(response => {
