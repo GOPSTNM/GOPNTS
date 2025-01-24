@@ -32,7 +32,7 @@
                         results += data["status"];
                         results += "<br>";
                         for (let i = 0; i < data["busStop"].length; i++) {
-                            results += "<div onclick='change()'>";
+                            results += "<div onclick='change(this)'>";
                             results += data["busStop"][i]["busStopId"];
                             results += "Bus Stop Status";
                             results += data["busStop"][i]["isSuspended"];
@@ -59,8 +59,8 @@
                         document.getElementById("results").innerHTML = results;
                     })
             }
-            function change() {
-                alert("hi");
+            function change(elem) {
+                elem.style.display = "none";
             }
         </script>
     </body>
