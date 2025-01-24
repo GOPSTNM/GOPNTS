@@ -30,10 +30,13 @@
                             results += data["busStop"][i]["busStopId"];
                             results += "<br>";
                             for (let k = 0; k < data["busStop"][i]["bus"].length; k++) {
+                                results += "Bus No.";
                                 results += data["busStop"][i]["bus"][k]["busId"];
                                 results += " ";
+                                results += "Arrive";
                                 results += data["busStop"][i]["bus"][k]["arrivalTimeInSecond"];
                                 results += " ";
+                                results += "Depart";
                                 results += data["busStop"][i]["bus"][k]["departureTimeInSecond"];
                                 results += " ";
                             }
