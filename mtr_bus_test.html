@@ -26,10 +26,11 @@
                         return response.json()
                     })
                     .then(data => {
-                        results += "Sys Time";
+                        results += "System Time ";
                         results += data["routeStatusTime"];
-                        results += "Status";
+                        results += " Status ";
                         results += data["status"];
+                        results += "<br>";
                         for (let i = 0; i < data["busStop"].length; i++) {
                             results += data["busStop"][i]["busStopId"];
                             results += "Bus Stop Status";
