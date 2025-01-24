@@ -26,8 +26,14 @@
                         return response.json()
                     })
                     .then(data => {
+                        results += "Sys Time";
+                        results += data["routeStatusTime"];
+                        results += "Status";
+                        results += data["status"];
                         for (let i = 0; i < data["busStop"].length; i++) {
                             results += data["busStop"][i]["busStopId"];
+                            results += "Bus Stop Status";
+                            results += data["busStop"][i]["isSuspended"];
                             results += "<br>";
                             for (let k = 0; k < data["busStop"][i]["bus"].length; k++) {
                                 results += "Bus No.";
@@ -39,6 +45,9 @@
                                 results += "Depart";
                                 results += data["busStop"][i]["bus"][k]["departureTimeInSecond"];
                                 results += " ";
+                                results += "Scheduled";
+                                results += data["busStop"][i]["bus"][k]["isScheduled"];
+                                results += "<br>";
                             }
                             results += "<br><br>";
                         }
