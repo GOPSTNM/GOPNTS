@@ -32,10 +32,13 @@
                         results += data["status"];
                         results += "<br>";
                         for (let i = 0; i < data["busStop"].length; i++) {
+                            results += "<div onclick='change()'>";
                             results += data["busStop"][i]["busStopId"];
                             results += "Bus Stop Status";
                             results += data["busStop"][i]["isSuspended"];
+                            results += "</div>";
                             results += "<br>";
+                            results += "<div>";
                             for (let k = 0; k < data["busStop"][i]["bus"].length; k++) {
                                 results += "Bus No.";
                                 results += data["busStop"][i]["bus"][k]["busId"];
@@ -50,10 +53,14 @@
                                 results += data["busStop"][i]["bus"][k]["isScheduled"];
                                 results += "<br>";
                             }
+                            results += "</div>";
                             results += "<br><br>";
                         }
                         document.getElementById("results").innerHTML = results;
                     })
+            }
+            function change() {
+                alert("hi");
             }
         </script>
     </body>
